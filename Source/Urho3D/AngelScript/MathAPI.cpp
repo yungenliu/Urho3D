@@ -36,11 +36,6 @@ namespace Urho3D
 
 static void RegisterMathFunctions(asIScriptEngine* engine)
 {
-    engine->RegisterEnum("Intersection");
-    engine->RegisterEnumValue("Intersection", "OUTSIDE", OUTSIDE);
-    engine->RegisterEnumValue("Intersection", "INTERSECTS", INTERSECTS);
-    engine->RegisterEnumValue("Intersection", "INSIDE", INSIDE);
-
     engine->RegisterGlobalProperty("const float M_INFINITY", (void*)&M_INFINITY);
     engine->RegisterGlobalProperty("const float M_EPSILON", (void*)&M_EPSILON);
     engine->RegisterGlobalProperty("const float M_LARGE_EPSILON", (void*)&M_LARGE_EPSILON);
