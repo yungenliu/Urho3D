@@ -24,12 +24,14 @@
 #include "Utils.h"
 #include <algorithm>
 #include <cassert>
+#include <memory>
 
 // For GetXmlFiles()
 #ifdef _WIN32
 #include <windows.h>
 #else
 #include <dirent.h>
+#include <sys/stat.h>
 #endif
 
 static void LoadXml(const string& fullPath)
@@ -133,7 +135,7 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
         return;
 
     struct stat st;
-    while (dirend* de = readdir(dir))
+    while (dirent* de = readdir(dir))
     {
         string filePath = dirPath + de->d_name;
 
