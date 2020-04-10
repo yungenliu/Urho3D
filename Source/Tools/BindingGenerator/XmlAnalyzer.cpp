@@ -24,6 +24,7 @@
 #include "Utils.h"
 
 #include <cassert>
+#include <string.h>
 
 static string HeaderFullPathToRelative(const string& fullPath)
 {
