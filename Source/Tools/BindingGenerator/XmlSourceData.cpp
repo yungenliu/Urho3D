@@ -143,7 +143,7 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
         if (st.st_mode & S_IFDIR)
             continue;
 
-        if (EndsWith(filePath, ".xml))
+        if (EndsWith(filePath, ".xml"))
             result.push_back(filePath);
     }
 
