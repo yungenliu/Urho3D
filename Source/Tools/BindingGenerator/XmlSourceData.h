@@ -25,6 +25,7 @@
 #include <PugiXml/pugixml.hpp>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 using namespace pugi;
