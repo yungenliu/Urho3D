@@ -166,7 +166,7 @@ namespace EnumBinder
 
 void GenerateASBindings(const string& outputPath)
 {
-    cout << "Generating AS bindings";
+    cout << "Generating AS bindings\n";
 
     EnumBinder::ProcessAllEnums();
     //ClassBinder::ProcessAllClasses();
