@@ -139,7 +139,7 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
     {
         string filePath = dirPath + de->d_name;
 
-        if (!stat(filePath, &st))
+        if (!stat(filePath.c_str(), &st))
             continue;
 
         if (st.st_mode & S_IFDIR)
