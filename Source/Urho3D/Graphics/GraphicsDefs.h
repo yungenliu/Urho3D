@@ -52,7 +52,7 @@ enum PrimitiveType
 };
 
 /// %Geometry type for vertex shader geometry variations.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum GeometryType
 {
     GEOM_STATIC = 0,
@@ -113,7 +113,7 @@ enum FillMode
 };
 
 /// Stencil operation.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum StencilOp
 {
     OP_KEEP = 0,
@@ -124,7 +124,7 @@ enum StencilOp
 };
 
 /// Vertex/index buffer lock state.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum LockState
 {
     LOCK_NONE = 0,
@@ -134,7 +134,7 @@ enum LockState
 };
 
 /// Hardcoded legacy vertex elements.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum LegacyVertexElement
 {
     ELEMENT_POSITION = 0,
@@ -283,7 +283,7 @@ enum CubeMapFace
 };
 
 /// Cubemap single image layout modes.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum CubeMapLayout
 {
     CML_HORIZONTAL = 0,
@@ -302,7 +302,7 @@ enum RenderSurfaceUpdateMode
 };
 
 /// Shader types.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum ShaderType
 {
     VS = 0,
@@ -310,7 +310,7 @@ enum ShaderType
 };
 
 /// Shader parameter groups for determining need to update. On APIs that support constant buffers, these correspond to different constant buffers.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum ShaderParameterGroup
 {
     SP_FRAME = 0,
@@ -324,7 +324,7 @@ enum ShaderParameterGroup
 };
 
 /// Texture units.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @manualbind
 enum TextureUnit
 {
     TU_DIFFUSE = 0,

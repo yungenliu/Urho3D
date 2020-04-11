@@ -59,7 +59,7 @@ struct ResourceGroup
 };
 
 /// Resource request types.
-/// @xmlonly BIND_IGNORE @endxmlonly
+/// @nobind
 enum ResourceRequest
 {
     RESOURCE_CHECKEXISTS = 0,

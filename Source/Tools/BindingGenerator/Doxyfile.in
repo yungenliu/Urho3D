@@ -129,3 +129,6 @@ WARN_IF_UNDOCUMENTED   = NO
 # The default value is: YES.
 
 WARN_IF_DOC_ERROR      = NO
+
+ALIASES += manualbind="BIND_IGNORE"
+ALIASES += nobind="BIND_IGNORE"
