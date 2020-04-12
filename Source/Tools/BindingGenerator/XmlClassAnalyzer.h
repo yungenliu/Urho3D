@@ -35,9 +35,30 @@ class ClassAnalyzer
 {
 private:
     xml_node compounddef_;
+    string id_;
+    string kind_; // "struct" or "class"
+    string className_;
+    string comment_;
+    string headerFile_; // Empty when enum is internal (defined in *.cpp)
+    bool isTemplate_;
+    bool isAbstract_;
+    bool isRefCounted_;
+    vector<xml_node> memberdefs_;
 
 public:
     ClassAnalyzer(xml_node compounddef);
 
     xml_node GetCompounddef() const { return compounddef_; }
+    const string& GetID() const { return id_; }
+    const string& GetKind() const { return kind_; }
+    const string& GetClassName() const { return className_; }
+    const string& GetComment() const { return comment_; }
+    const string& GetHeaderFile() const { return headerFile_; }
+    bool IsInternal() const { return headerFile_.empty(); }
+    bool IsTemplate() const { return isTemplate_; }
+    bool IsAbstract() const { return isAbstract_; }
+    bool IsRefCounted() const { return isRefCounted_; }
+    const vector<xml_node>& GetMemberdefs() const { return memberdefs_; }
+    
+    xml_node FindMember(const string& name);
 };

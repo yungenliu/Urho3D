@@ -24,17 +24,17 @@
 
 #include <iostream>
 
-void ProcessAllEnums();
-void ProcessAllClasses();
-void ProcessAllGlobalFunctions();
+void ASProcessAllEnums();
+void ASProcessAllClasses();
+void ASProcessAllGlobalFunctions();
 
 void GenerateASBindings(const string& outputPath)
 {
     cout << "Generating AS bindings\n";
 
-    ProcessAllEnums();
-    ProcessAllClasses();
-    ProcessAllGlobalFunctions();
+    ASProcessAllEnums();
+    ASProcessAllClasses();
+    ASProcessAllGlobalFunctions();
 
     ASResult::Save(outputPath);
 }

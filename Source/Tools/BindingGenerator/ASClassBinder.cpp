@@ -20,6 +20,20 @@
 // THE SOFTWARE.
 //
 
-void ProcessAllClasses()
+#include "XmlClassAnalyzer.h"
+#include "XmlSourceData.h"
+
+static void ProcessClass(ClassAnalyzer& analyzer)
 {
+
+}
+
+void ASProcessAllClasses()
+{
+    for (auto element : SourceData::classes_)
+    {
+        xml_node compounddef = element.second;
+        ClassAnalyzer analyzer(compounddef);
+        ProcessClass(analyzer);
+    }
 }

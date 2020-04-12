@@ -32,8 +32,8 @@ void GenerateASBindings(const string& outputPath);
 int main(int argc, char* argv[])
 {
 #ifdef DEVELOP
-    string inputDir = R"(D:/MyGames/Urho3DFork/Build/Source/Tools/BindingGenerator/generated/xml)";
-    string outputBasePath = R"(D:/MyGames/Urho3DFork/Urho3D)";
+    string inputDir = R"(D:/MyGames/Urho3DDevBranch/Build/Source/Tools/BindingGenerator/generated/xml)";
+    string outputBasePath = R"(D:/MyGames/Urho3DDevBranch/Urho3D)";
 #else
     if (argc != 3)
         return -1;

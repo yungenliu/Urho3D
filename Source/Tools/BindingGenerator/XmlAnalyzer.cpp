@@ -105,8 +105,8 @@ static string DescriptionToString(xml_node description)
     return result;
 }
 
-string ExtractComment(xml_node memberdef)
+string ExtractComment(xml_node def)
 {
-    return DescriptionToString(memberdef.child("briefdescription"))
-        + DescriptionToString(memberdef.child("detaileddescription"));
+    return DescriptionToString(def.child("briefdescription"))
+        + DescriptionToString(def.child("detaileddescription"));
 }

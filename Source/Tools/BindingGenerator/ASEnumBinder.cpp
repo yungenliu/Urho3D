@@ -67,7 +67,7 @@ static void ProcessEnum(EnumAnalyzer& analyzer)
     ASResult::regFirst_ << "\n";
 }
 
-void ProcessAllEnums()
+void ASProcessAllEnums()
 {
     xml_node sectiondef = FindSectiondef(SourceData::namespaceUrho3D_, "enum");
     assert(sectiondef);

@@ -34,6 +34,8 @@
 #include <sys/stat.h>
 #endif
 
+#include <iostream>
+
 static void LoadXml(const string& fullPath)
 {
     // All loaded XMLs. Not used directly, just prevents destruction
@@ -77,14 +79,14 @@ static void LoadXml(const string& fullPath)
         string id = compounddef.attribute("id").value();
         assert(!id.empty());
 
-        SourceData::compounddefs_.insert({ id, compounddef });
+        SourceData::classes_.insert({ id, compounddef });
 
         for (xml_node sectiondef : compounddef.children("sectiondef"))
         {
             for (xml_node memberdef : sectiondef.children("memberdef"))
             {
                 string id = memberdef.attribute("id").value();
-                SourceData::memberdefs_.insert({ id, memberdef });
+                SourceData::members_.insert({ id, memberdef });
             }
         }
     }
@@ -134,10 +136,14 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
     if (!dir)
         return;
 
+    cout << "BindGen: dir " << dirPath << " is opened";
+
     struct stat st;
     while (dirent* de = readdir(dir))
     {
         string filePath = dirPath + de->d_name;
+
+        cout << "BindGen: filePath = " << filePath;
 
         if (!stat(filePath.c_str(), &st))
             continue;
@@ -147,6 +153,8 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
 
         if (EndsWith(filePath, ".xml"))
             result.push_back(filePath);
+
+        cout << "BindGen: pushed to vector";
     }
 
     closedir(dir);
@@ -155,9 +163,9 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
 
 namespace SourceData
 {
-    unordered_map<string, xml_node> compounddefs_;
+    unordered_map<string, xml_node> classes_;
     xml_node namespaceUrho3D_;
-    unordered_map<string, xml_node> memberdefs_;
+    unordered_map<string, xml_node> members_;
     vector<string> defines_;
 
     void LoadAllXmls(const string& dir)

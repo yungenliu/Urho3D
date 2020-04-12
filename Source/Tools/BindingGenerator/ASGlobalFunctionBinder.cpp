@@ -20,6 +20,6 @@
 // THE SOFTWARE.
 //
 
-void ProcessAllGlobalFunctions()
+void ASProcessAllGlobalFunctions()
 {
 }

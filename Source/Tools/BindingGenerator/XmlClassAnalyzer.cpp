@@ -20,9 +20,68 @@
 // THE SOFTWARE.
 //
 
+#include "Utils.h"
+#include "XmlAnalyzer.h"
 #include "XmlClassAnalyzer.h"
+#include "XmlSourceData.h"
+
+#include <cassert>
+
+static string ExtractHeaderFileFromAnyMember(xml_node compounddef)
+{
+    for (xml_node sectiondef : compounddef.children("sectiondef"))
+    {
+        xml_node memberdef = sectiondef.child("memberdef");
+        if (memberdef)
+            return ExtractHeaderFile(memberdef);
+    }
+
+    return string();
+}
 
 ClassAnalyzer::ClassAnalyzer(xml_node compounddef)
 {
     compounddef_ = compounddef;
+
+    id_ = compounddef.attribute("id").value();
+    assert(!id_.empty());
+
+    kind_ = compounddef.attribute("kind").value();
+    assert(kind_ == "struct" || kind_ == "class");
+
+    className_ = compounddef.child("compoundname").child_value();
+    assert(StartsWith(className_, "Urho3D::"));
+    className_ = CutStart(className_, "Urho3D::");
+
+    comment_ = ExtractComment(compounddef);
+    headerFile_ = ExtractHeaderFileFromAnyMember(compounddef);
+    isTemplate_ = !compounddef.child("templateparamlist").empty();
+    isAbstract_ = (compounddef.attribute("abstract").value() == string("yes"));
+
+    // Init memberdefs_
+    xml_node listofallmembers = compounddef_.child("listofallmembers");
+    assert(listofallmembers);
+
+    for (xml_node member : listofallmembers.children("member"))
+    {
+        xml_attribute ambiguityscope = member.attribute("ambiguityscope");
+        if (!ambiguityscope.empty()) // Overridden member from parent class
+            continue;
+
+        string id = member.attribute("refid").value();
+        memberdefs_.push_back(SourceData::members_[id]);
+    }
+
+    isRefCounted_ = FindMember("AddRef") && FindMember("ReleaseRef");
+}
+
+xml_node ClassAnalyzer::FindMember(const string& name)
+{
+    for (xml_node memberdef : GetMemberdefs())
+    {
+        if (memberdef.child("name").child_value() == name)
+            return memberdef;
+    }
+
+    return xml_node();
 }
