@@ -44,10 +44,13 @@ static void LoadXml(const string& fullPath)
     // Load and store XML file
     shared_ptr<xml_document> xmlDocument = make_shared<xml_document>();
     xml_parse_result parseResult = xmlDocument->load_file(fullPath.c_str());
+    cout << "Bindgen: File " << fullPath << " parsed\n";
     assert(parseResult);
     xmlStorage.push_back(xmlDocument);
 
     string fileName = GetFileName(fullPath);
+
+    cout << "Bindgen: parsed file name " << fileName << "\n";
 
     // Fill defines_
     if (fileName == "index.xml")
@@ -68,6 +71,8 @@ static void LoadXml(const string& fullPath)
                 }
             }
         }
+
+        cout << "Bindgen: index founded\n";
     }
     // Fill memberdefs_ and compounddefs_
     else if (StartsWith(fileName, "struct") || StartsWith(fileName, "class"))
@@ -89,6 +94,8 @@ static void LoadXml(const string& fullPath)
                 SourceData::members_.insert({ id, memberdef });
             }
         }
+
+        cout << "Bindgen: this is class\n";
     }
     // Init namespaceUrho3D_
     else if (fileName == "namespace_urho3_d.xml")
@@ -101,6 +108,8 @@ static void LoadXml(const string& fullPath)
         assert(compoundname == "Urho3D");
 
         SourceData::namespaceUrho3D_ = compounddef;
+
+        cout << "Bindgen: this is namespace\n";
     }
 }
 
