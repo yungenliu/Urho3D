@@ -136,14 +136,14 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
     if (!dir)
         return;
 
-    cout << "BindGen: dir " << dirPath << " is opened";
+    cout << "BindGen: dir " << dirPath << " is opened\n";
 
     struct stat st;
     while (dirent* de = readdir(dir))
     {
         string filePath = dirPath + de->d_name;
 
-        cout << "BindGen: filePath = " << filePath;
+        cout << "BindGen: filePath = " << filePath << "\n";
 
         if (!stat(filePath.c_str(), &st))
             continue;
@@ -154,7 +154,7 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
         if (EndsWith(filePath, ".xml"))
             result.push_back(filePath);
 
-        cout << "BindGen: pushed to vector";
+        cout << "BindGen: pushed to vector\n";
     }
 
     closedir(dir);

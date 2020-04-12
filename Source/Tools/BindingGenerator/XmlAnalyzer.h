@@ -30,7 +30,7 @@ using namespace std;
 
 string ExtracLocation(xml_node memberdef);
 
-// Extract cpmment from memerdef or compounddef
+// Extract comment from memberdef or compounddef
 string ExtractComment(xml_node def);
 
 // Return relative path to header file or empty if declared in .cpp file
