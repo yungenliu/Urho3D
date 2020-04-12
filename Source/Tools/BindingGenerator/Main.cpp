@@ -22,13 +22,12 @@
 
 #include "XmlSourceData.h"
 
-#include <string>
-
-using namespace std;
-
 //#define DEVELOP
 
 void GenerateASBindings(const string& outputPath);
+//GenerateLuaBindings(const string& outputPath);
+//GenerateJSBindings(const string& outputPath);
+//GenerateCSBindings(const string& outputPath);
 
 int main(int argc, char* argv[])
 {

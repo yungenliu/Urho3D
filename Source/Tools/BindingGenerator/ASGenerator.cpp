@@ -20,157 +20,21 @@
 // THE SOFTWARE.
 //
 
-#include "Tuning.h"
-#include "XmlSourceData.h"
-#include "XmlEnumAnalyzer.h"
-#include "XmlAnalyzer.h"
-#include "Utils.h"
+#include "ASResult.h"
 
-#include <algorithm>
-#include <cassert>
-#include <fstream>
 #include <iostream>
-#include <sstream>
 
-namespace Result
-{
-    namespace
-    {
-        // List of all required header files
-        static vector<string> headers_;
-    }
-
-    // Wrapper functions
-    static stringstream glue_;
-
-    // Registration of all types before registration of any members
-    // because members can use any types
-    static stringstream regFirst_;
-
-    // Registration of all members, global functions, etc
-    static stringstream reg_;
-
-    // Add header to list if not added yet
-    static void AddHeader(string headerFile)
-    {
-        if (!CONTAINS(headers_, headerFile))
-            headers_.push_back(headerFile);
-    }
-
-    static void WriteLocation(stringstream& stream, xml_node memberdef)
-    {
-        if (&stream != &glue_)
-            stream << "    ";
-
-        stream << "// " << ExtracLocation(memberdef);
-    }
-
-    // Write result to file
-    static void Save(const string& path)
-    {
-        ofstream out(path);
-
-        out <<
-            "// DO NOT EDIT. This file is generated\n"
-            "\n"
-            "#include \"../Precompiled.h\"\n"
-            "#include \"../AngelScript/APITemplates.h\"\n"
-            "\n";
-
-        sort(headers_.begin(), headers_.end());
-        for (string header : headers_)
-        {
-            string insideDefine = InsideDefine(header);
-            if (!insideDefine.empty())
-                out << "#ifdef " << insideDefine << "\n";
-
-            out << "#include \"" << header << "\"\n";
-
-            if (!insideDefine.empty())
-                out << "#endif\n";
-        }
-
-        out <<
-            "\n"
-            "namespace Urho3D\n"
-            "{\n"
-            "\n"
-            << glue_.str() <<
-            "void RegisterGenerated(asIScriptEngine* engine)\n"
-            "{\n"
-            << regFirst_.str()
-            << reg_.str() <<
-            "}\n"
-            "\n"
-            "}\n";
-
-        out.close();
-    }
-}
-
-namespace EnumBinder
-{
-    namespace
-    {
-        static void ProcessEnum(EnumAnalyzer& analyzer)
-        {
-            if (analyzer.IsInternal())
-                return;
-
-            string header = analyzer.GetHeaderFile();
-            if (IsIgnoredHeader(header))
-                return;
-
-            if (Contains(analyzer.GetComment(), "BIND_IGNORE"))
-                return;
-
-            Result::AddHeader(header);
-
-            string insideDefine = InsideDefine(header);
-            if (!insideDefine.empty())
-                Result::regFirst_ << "#ifdef " << insideDefine << "\n";
-
-            Result::WriteLocation(Result::regFirst_, analyzer.GetMemberdef());
-
-            string name = analyzer.GetTypeName();
-            Result::regFirst_ << "    engine->RegisterEnum(\"" << name << "\");\n";
-
-            for (string value : analyzer.GetEnumerators())
-            {
-                Result::regFirst_ <<
-                    "    engine->RegisterEnumValue("
-                    "\"" << name << "\", "
-                    "\"" << value << "\", "
-                    << value << ");\n";
-            }
-
-            if (!insideDefine.empty())
-                Result::regFirst_ << "#endif\n";
-
-            Result::regFirst_ << "\n";
-        }
-    }
-
-    static void ProcessAllEnums()
-    {
-        xml_node sectiondef = FindSectiondef(SourceData::namespaceUrho3D_, "enum");
-        assert(sectiondef);
-
-        for (xml_node memberdef : sectiondef.children("memberdef"))
-        {
-            EnumAnalyzer analyzer(memberdef);
-            ProcessEnum(analyzer);
-        }
-    }
-}
+void ProcessAllEnums();
+void ProcessAllClasses();
+void ProcessAllGlobalFunctions();
 
 void GenerateASBindings(const string& outputPath)
 {
     cout << "Generating AS bindings\n";
 
-    EnumBinder::ProcessAllEnums();
-    //ClassBinder::ProcessAllClasses();
-    //GlobalFunctionBinder::ProcessAllGlobalFunctions();
+    ProcessAllEnums();
+    ProcessAllClasses();
+    ProcessAllGlobalFunctions();
 
-    Result::Save(outputPath);
+    ASResult::Save(outputPath);
 }

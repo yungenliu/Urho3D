@@ -23,31 +23,30 @@
 #pragma once
 
 #include <PugiXml/pugixml.hpp>
+#include <sstream>
 #include <string>
-#include <vector>
 
 using namespace std;
 using namespace pugi;
 
-// Extracting data from <memberdef kind="enum" ...>
-class EnumAnalyzer
+namespace ASResult
 {
-private:
-    xml_node memberdef_;
-    string id_;
-    string typeName_;
-    string comment_;
-    vector<string> enumerators_;
-    string headerFile_; // Empty when enum is internal (defined in *.cpp)
+    // Wrapper functions
+    extern stringstream glue_;
 
-public:
-    EnumAnalyzer(xml_node memberdef);
+    // Registration of all types before registration of any members
+    // because members can use any types
+    extern stringstream regFirst_;
 
-    xml_node GetMemberdef() const { return memberdef_; }
-    const string& GetID() const { return id_; }
-    const string& GetTypeName() const { return typeName_; }
-    const string& GetComment() const { return comment_; }
-    const string& GetHeaderFile() const { return headerFile_; }
-    const vector<string>& GetEnumerators() const { return enumerators_; }
-    bool IsInternal() const { return headerFile_.empty(); }
-};
+    // Registration of all members, global functions, etc
+    extern stringstream reg_;
+
+    // Add header to list if not added yet
+    void AddHeader(const string& headerFile);
+
+    // Write file and line of source
+    void WriteLocation(stringstream& stream, xml_node memberdef);
+
+    // Write result to file
+    void Save(const string& path);
+}

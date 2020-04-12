@@ -29,25 +29,15 @@
 using namespace std;
 using namespace pugi;
 
-// Extracting data from <memberdef kind="enum" ...>
-class EnumAnalyzer
+// Extracting data from <compounddef kind="struct" ...>
+// or <compounddef kind="class" ...>
+class ClassAnalyzer
 {
 private:
-    xml_node memberdef_;
-    string id_;
-    string typeName_;
-    string comment_;
-    vector<string> enumerators_;
-    string headerFile_; // Empty when enum is internal (defined in *.cpp)
+    xml_node compounddef_;
 
 public:
-    EnumAnalyzer(xml_node memberdef);
+    ClassAnalyzer(xml_node compounddef);
 
-    xml_node GetMemberdef() const { return memberdef_; }
-    const string& GetID() const { return id_; }
-    const string& GetTypeName() const { return typeName_; }
-    const string& GetComment() const { return comment_; }
-    const string& GetHeaderFile() const { return headerFile_; }
-    const vector<string>& GetEnumerators() const { return enumerators_; }
-    bool IsInternal() const { return headerFile_.empty(); }
+    xml_node GetCompounddef() const { return compounddef_; }
 };

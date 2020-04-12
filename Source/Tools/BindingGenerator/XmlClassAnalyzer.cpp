@@ -20,34 +20,9 @@
 // THE SOFTWARE.
 //
 
-#pragma once
+#include "XmlClassAnalyzer.h"
 
-#include <PugiXml/pugixml.hpp>
-#include <string>
-#include <vector>
-
-using namespace std;
-using namespace pugi;
-
-// Extracting data from <memberdef kind="enum" ...>
-class EnumAnalyzer
+ClassAnalyzer::ClassAnalyzer(xml_node compounddef)
 {
-private:
-    xml_node memberdef_;
-    string id_;
-    string typeName_;
-    string comment_;
-    vector<string> enumerators_;
-    string headerFile_; // Empty when enum is internal (defined in *.cpp)
-
-public:
-    EnumAnalyzer(xml_node memberdef);
-
-    xml_node GetMemberdef() const { return memberdef_; }
-    const string& GetID() const { return id_; }
-    const string& GetTypeName() const { return typeName_; }
-    const string& GetComment() const { return comment_; }
-    const string& GetHeaderFile() const { return headerFile_; }
-    const vector<string>& GetEnumerators() const { return enumerators_; }
-    bool IsInternal() const { return headerFile_.empty(); }
-};
+    compounddef_ = compounddef;
+}
