@@ -154,7 +154,7 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
 
         cout << "BindGen: filePath = " << filePath << "\n";
 
-        if (!stat(filePath.c_str(), &st))
+        if (stat(filePath.c_str(), &st) != 0)
             continue;
 
         cout << "BindGen: stat success\n";
