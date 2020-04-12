@@ -157,8 +157,12 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
         if (!stat(filePath.c_str(), &st))
             continue;
 
+        cout << "BindGen: stat success\n";
+
         if (st.st_mode & S_IFDIR)
             continue;
+
+        cout << "Is dir\n";
 
         if (EndsWith(filePath, ".xml"))
             result.push_back(filePath);
