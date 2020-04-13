@@ -34,7 +34,7 @@ env:
     - URHO3D_GENERATEBINDINGS=1
   matrix:
     # Linux native 64-bit
-    - LINUX=1 URHO3D_LIB_TYPE=STATIC URHO3D_UPDATE_SOURCE_TREE=1 SF_DEFAULT=linux:Linux-64bit-STATIC.tar.gz   # GCC
+    - LINUX=1 URHO3D_LIB_TYPE=STATIC URHO3D_UPDATE_SOURCE_TREE=0 SF_DEFAULT=linux:Linux-64bit-STATIC.tar.gz   # GCC
     - LINUX=1 URHO3D_LIB_TYPE=SHARED
     - LINUX=1 URHO3D_LIB_TYPE=STATIC CC=clang CXX=clang++                                                     # Clang
     - LINUX=1 URHO3D_LIB_TYPE=SHARED CC=clang CXX=clang++
