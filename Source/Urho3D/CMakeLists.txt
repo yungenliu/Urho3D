@@ -146,36 +146,11 @@ endif ()
 if (APPLE AND NOT ARM)
     set (GLOB_OBJC_PATTERN *.m)     # Should only pick up MacFileWatcher.m for macOS platform at the moment
 endif ()
-
 string (REPLACE ";" "/[^;]+;" EXCLUDE_PATTERNS "${EXCLUDED_SOURCE_DIRS};")
-define_source_files (EXCLUDE_PATTERNS ${EXCLUDE_PATTERNS} GLOB_CPP_PATTERNS *.cpp ${GLOB_OBJC_PATTERN} RECURSE GROUP PCH Precompiled.h)
-
 if (URHO3D_GENERATEBINDINGS)
-    find_package (Doxygen REQUIRED)
-    
-    if (NOT DOXYGEN_FOUND)
-        message (FATAL_ERROR Doxygen required to generate bindings)
-    endif ()
-    
-    set (XML_AST_DIR ${CMAKE_BINARY_DIR}/Source/Tools/BindingGenerator/generated/xml)
-    
-    # Generate xmls and run BindingGenerator
-    add_custom_command (OUTPUT ${CMAKE_SOURCE_DIR}/Source/Urho3D/AngelScript/Generated.cpp
-                               #${CMAKE_SOURCE_DIR}/Source/Urho3D/Lua/Generated.cpp
-                               #${CMAKE_SOURCE_DIR}/Source/Urho3D/JavaScript/Generated.cpp
-                               #${CMAKE_SOURCE_DIR}/Source/Urho3D/CSharp/Generated.cpp
-                               fake_output_to_force_run_every_time
-                        COMMAND ${CMAKE_COMMAND} -E echo "Generating XMLs with AST to ${XML_AST_DIR}"
-                        COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_BINARY_DIR}/Source/Tools/BindingGenerator/generated/Doxyfile"
-                        COMMAND BindingGenerator "${XML_AST_DIR}" "${CMAKE_SOURCE_DIR}"
-                        DEPENDS BindingGenerator ${CMAKE_BINARY_DIR}/Source/Tools/BindingGenerator/generated/Doxyfile
-                        COMMENT "Generating bindings to script languages")
-
-    if (URHO3D_ANGELSCRIPT)
-        list (APPEND SOURCE_FILES ${CMAKE_SOURCE_DIR}/Source/Urho3D/AngelScript/Generated.cpp)
-        source_group ("Source Files\\AngelScript" FILES ${CMAKE_SOURCE_DIR}/Source/Urho3D/AngelScript/Generated.cpp)
-    endif()
+    list (APPEND EXCLUDE_PATTERNS Generated.cpp)
 endif ()
+define_source_files (EXCLUDE_PATTERNS ${EXCLUDE_PATTERNS} GLOB_CPP_PATTERNS *.cpp ${GLOB_OBJC_PATTERN} RECURSE GROUP PCH Precompiled.h)
 
 # Define generated source files
 if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/librevision.h)
@@ -232,6 +207,29 @@ if (URHO3D_BINDINGS)
         DEPENDS AutoBinder ${H_FILES}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMENT "Generating source files for binding script subsystems")
+    source_group ("Source Files\\Generated" FILES ${GEN_CPP_FILES})
+elseif (URHO3D_GENERATEBINDINGS)
+    find_package (Doxygen REQUIRED)
+    # Generating Doxyfile, if necessary
+    if (${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in IS_NEWER_THAN ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+        configure_file (${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/generated/Doxyfile)
+    endif()
+    # Generate xmls and run BindingGenerator
+    foreach (SCRIPT AngelScript) # Lua JavaScript CSharp
+        list (APPEND GEN_CPP_FILES ${CMAKE_CURRENT_BINARY_DIR}/generated/${SCRIPT}-Generated.cpp)
+        if (URHO3D_UPDATE_SOURCE_TREE)
+            list (APPEND UPDATE_COMMANDS COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_BINARY_DIR}/generated/${SCRIPT}-Generated.cpp ${CMAKE_CURRENT_SOURCE_DIR}/${SCRIPT}/Generated.cpp)
+        endif ()
+    endforeach ()
+    add_custom_command (OUTPUT ${GEN_CPP_FILES}
+        COMMAND ${CMAKE_COMMAND} -E echo "Generating XMLs with AST to ${CMAKE_CURRENT_BINARY_DIR}/generated/xml"
+        COMMAND ${DOXYGEN_EXECUTABLE} Doxyfile
+        COMMAND BindingGenerator xml .
+        ${UPDATE_COMMANDS}
+        DEPENDS BindingGenerator Doxyfile.in ${SOURCE_FILES}
+        WORKING_DIRECTORY generated
+        COMMENT "Generating bindings for script subsystems")
+    source_group ("Source Files\\Generated" FILES ${GEN_CPP_FILES})
 endif ()
 if (URHO3D_LUA)
     # The host tool must be built natively

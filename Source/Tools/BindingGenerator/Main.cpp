@@ -44,10 +44,10 @@ int main(int argc, char* argv[])
 
     SourceData::LoadAllXmls(inputDir);
 
-    GenerateASBindings(outputBasePath + "/Source/Urho3D/AngelScript/Generated.cpp");
-    //GenerateLuaBindings(outputBasePath + "/Source/Urho3D/Lua/Generated.cpp");
-    //GenerateJSBindings(outputBasePath + "/Source/Urho3D/JavaScript/Generated.cpp");
-    //GenerateCSBindings(outputBasePath + "/Source/Urho3D/CSharp/Generated.cpp");
+    GenerateASBindings(outputBasePath + "/AngelScript-Generated.cpp");
+    //GenerateLuaBindings(outputBasePath + "/Lua-Generated.cpp");
+    //GenerateJSBindings(outputBasePath + "/JavaScript-Generated.cpp");
+    //GenerateCSBindings(outputBasePath + "/CSharp-Generated.cpp");
     
     return 0;
 }
