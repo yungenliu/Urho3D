@@ -148,7 +148,7 @@ if (APPLE AND NOT ARM)
 endif ()
 string (REPLACE ";" "/[^;]+;" EXCLUDE_PATTERNS "${EXCLUDED_SOURCE_DIRS};")
 if (URHO3D_GENERATEBINDINGS)
-    list (APPEND EXCLUDE_PATTERNS Generated.cpp)
+    list (APPEND EXCLUDE_PATTERNS "[^;]+/Generated.cpp")
 endif ()
 define_source_files (EXCLUDE_PATTERNS ${EXCLUDE_PATTERNS} GLOB_CPP_PATTERNS *.cpp ${GLOB_OBJC_PATTERN} RECURSE GROUP PCH Precompiled.h)
 
