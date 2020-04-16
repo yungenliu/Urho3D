@@ -224,7 +224,7 @@ elseif (URHO3D_GENERATEBINDINGS)
     add_custom_command (OUTPUT ${GEN_CPP_FILES}
         COMMAND ${CMAKE_COMMAND} -E echo "Generating XMLs with AST to ${CMAKE_CURRENT_BINARY_DIR}/generated/xml"
         COMMAND ${DOXYGEN_EXECUTABLE} Doxyfile
-        COMMAND BindingGenerator xml .
+        COMMAND ${CMAKE_BINARY_DIR}/bin/tool/BindingGenerator xml .
         ${UPDATE_COMMANDS}
         DEPENDS BindingGenerator Doxyfile.in ${SOURCE_FILES}
         WORKING_DIRECTORY generated

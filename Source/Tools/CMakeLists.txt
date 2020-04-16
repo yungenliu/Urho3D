@@ -62,7 +62,12 @@ if (CMAKE_CROSSCOMPILING)
         install (PROGRAMS ${CMAKE_BINARY_DIR}/bin/tool/PackageTool DESTINATION ${DEST_RUNTIME_DIR}/tool)
     endif ()
     if (URHO3D_GENERATEBINDINGS)
-        message (FATAL "TODO - Not implemented yet!")
+        ExternalProject_Add (BindingGenerator
+            SOURCE_DIR ${CMAKE_SOURCE_DIR}/Source/Tools/BindingGenerator
+            CMAKE_ARGS -DDEST_RUNTIME_DIR=${CMAKE_BINARY_DIR}/bin/tool -DBAKED_CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR} -DBAKED_CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR} -DCMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}
+            ${ALTERNATE_COMMAND})
+        add_make_clean_files (${CMAKE_BINARY_DIR}/bin/tool/BindingGenerator)
+        install (PROGRAMS ${CMAKE_BINARY_DIR}/bin/tool/BindingGenerator DESTINATION ${DEST_RUNTIME_DIR}/tool)
     endif ()
 endif ()
 

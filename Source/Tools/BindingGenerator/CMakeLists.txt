@@ -47,6 +47,10 @@ if (NOT CMAKE_PROJECT_NAME STREQUAL Urho3D)
 
     # Add dependency targets
     add_subdirectory (${BAKED_CMAKE_SOURCE_DIR}/Source/ThirdParty/PugiXml host/PugiXml)
+
+    # Setup SDK-like include dir in the build tree for building the host-tools
+    set (DEST_INCLUDE_DIR include/Urho3D)
+    set (INCLUDE_DIRS ${BAKED_CMAKE_BINARY_DIR}/${DEST_INCLUDE_DIR}/ThirdParty)
 endif ()
 
 # Define target name
