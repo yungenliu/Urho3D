@@ -20,10 +20,12 @@
 // THE SOFTWARE.
 //
 
-#include "XmlSourceData.h"
 #include "Utils.h"
+#include "XmlSourceData.h"
+
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 #include <memory>
 
 // For GetXmlFiles()
@@ -34,8 +36,6 @@
 #include <sys/stat.h>
 #endif
 
-#include <iostream>
-
 static void LoadXml(const string& fullPath)
 {
     // All loaded XMLs. Not used directly, just prevents destruction
@@ -44,20 +44,14 @@ static void LoadXml(const string& fullPath)
     // Load and store XML file
     shared_ptr<xml_document> xmlDocument = make_shared<xml_document>();
     xml_parse_result parseResult = xmlDocument->load_file(fullPath.c_str());
-    cout << "Bindgen: File " << fullPath << " parsed\n";
     assert(parseResult);
     xmlStorage.push_back(xmlDocument);
 
-    string fileName = GetFileName(fullPath);
-
-    cout << "Bindgen: parsed file name " << fileName << "\n";
-
-    // Fill defines_
-    if (fileName == "index.xml")
+    xml_node doxygenindex = xmlDocument->child("doxygenindex");
+    
+    if (doxygenindex) // index.xml
     {
-        xml_node doxygenindex = xmlDocument->child("doxygenindex");
-        assert(doxygenindex);
-
+        // Fill defines_
         for (xml_node compound : doxygenindex.children("compound"))
         {
             for (xml_node member : compound.children("member"))
@@ -72,44 +66,46 @@ static void LoadXml(const string& fullPath)
             }
         }
 
-        cout << "Bindgen: index founded\n";
+        return;
     }
-    // Fill memberdefs_ and compounddefs_
-    else if (StartsWith(fileName, "struct") || StartsWith(fileName, "class"))
+    
+    xml_node compounddef = xmlDocument->child("doxygen").child("compounddef");
+    
+    if (!compounddef)
+        return;
+
+    string kind = compounddef.attribute("kind").value();
+
+    if (kind == "struct" || kind == "class")
     {
-        xml_node compounddef = xmlDocument->child("doxygen").child("compounddef");
-        assert(!compounddef.empty());
-        string kind = compounddef.attribute("kind").value();
-        assert(kind == "struct" || kind == "class");
+        // Fill classes_
         string id = compounddef.attribute("id").value();
         assert(!id.empty());
-
         SourceData::classes_.insert({ id, compounddef });
 
+        // Fill members_
         for (xml_node sectiondef : compounddef.children("sectiondef"))
         {
             for (xml_node memberdef : sectiondef.children("memberdef"))
             {
-                string id = memberdef.attribute("id").value();
-                SourceData::members_.insert({ id, memberdef });
+                string memberKind = memberdef.attribute("kind").value();
+                if (memberKind != "variable" && memberKind != "function")
+                    continue;
+
+                string memberID = memberdef.attribute("id").value();
+                SourceData::members_.insert({ memberID, memberdef });
             }
         }
-
-        cout << "Bindgen: this is class\n";
     }
-    // Init namespaceUrho3D_
-    else if (fileName == "namespace_urho3_d.xml")
+    else if (kind == "namespace")
     {
-        xml_node compounddef = xmlDocument->child("doxygen").child("compounddef");
-        assert(!compounddef.empty());
-        string kind = compounddef.attribute("kind").value();
-        assert(kind == "namespace");
         string compoundname = compounddef.child("compoundname").child_value();
-        assert(compoundname == "Urho3D");
 
+        if (compoundname != "Urho3D")
+            return;
+
+        // Init namespaceUrho3D_
         SourceData::namespaceUrho3D_ = compounddef;
-
-        cout << "Bindgen: this is namespace\n";
     }
 }
 
@@ -145,29 +141,19 @@ static void GetXmlFiles(string dirPath, vector<string>& result)
     if (!dir)
         return;
 
-    cout << "BindGen: dir " << dirPath << " is opened\n";
-
     struct stat st;
     while (dirent* de = readdir(dir))
     {
         string filePath = dirPath + de->d_name;
 
-        cout << "BindGen: filePath = " << filePath << "\n";
-
         if (stat(filePath.c_str(), &st) != 0)
             continue;
-
-        cout << "BindGen: stat success\n";
 
         if (st.st_mode & S_IFDIR)
             continue;
 
-        cout << "Is dir\n";
-
         if (EndsWith(filePath, ".xml"))
             result.push_back(filePath);
-
-        cout << "BindGen: pushed to vector\n";
     }
 
     closedir(dir);
@@ -183,8 +169,10 @@ namespace SourceData
 
     void LoadAllXmls(const string& dir)
     {
+        cout << "Loading XMLs from " << dir << "\n";
         vector<string> fullPaths;
         GetXmlFiles(dir, fullPaths);
+        cout << "Found " << fullPaths.size() << " xml files\n";
 
         for (string fullPath : fullPaths)
             LoadXml(fullPath);
