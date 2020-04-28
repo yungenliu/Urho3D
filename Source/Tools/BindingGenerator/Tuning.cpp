@@ -30,22 +30,22 @@ string InsideDefine(const string& headerFile)
 {
     string dir = WithoutFileName(headerFile);
 
-    if (dir == "../Network")
+    if (dir == "Network")
         return "URHO3D_NETWORK";
 
-    if (dir == "../Database")
+    if (dir == "Database")
         return "URHO3D_DATABASE";
 
-    if (dir == "../IK")
+    if (dir == "IK")
         return "URHO3D_IK";
 
-    if (dir == "../Physics")
+    if (dir == "Physics")
         return "URHO3D_PHYSICS";
 
-    if (dir == "../Navigation")
+    if (dir == "Navigation")
         return "URHO3D_NAVIGATION";
 
-    if (dir == "../Urho2D")
+    if (dir == "Urho2D")
         return "URHO3D_URHO2D";
 
     return string();
@@ -55,18 +55,18 @@ string InsideDefine(const string& headerFile)
 bool IsIgnoredHeader(const string& headerFile)
 {
     static vector<string> ignoredDirs = {
-        "../AngelScript",
-        "../Container",
-        "../LuaScript",
+        "AngelScript",
+        "Container",
+        "LuaScript",
     };
 
     static vector<string> ignoredHeaders = {
-        "../Graphics/Drawable.h",
-        "../IK/IKConverters.h",
-        "../Physics/PhysicsUtils.h",
-        "../Urho2D/PhysicsUtils2D.h",
-        "../Resource/PListFile.h",
-        "../Resource/Resource.h",
+        "Graphics/Drawable.h",
+        "IK/IKConverters.h",
+        "Physics/PhysicsUtils.h",
+        "Urho2D/PhysicsUtils2D.h",
+        "Resource/PListFile.h",
+        "Resource/Resource.h",
     };
 
     if (CONTAINS(ignoredHeaders, headerFile))

@@ -59,8 +59,8 @@ void Save(const string& path)
     out <<
         "// DO NOT EDIT. This file is generated\n"
         "\n"
-        "#include \"../Precompiled.h\"\n"
-        "#include \"../AngelScript/APITemplates.h\"\n"
+        "#include \"Precompiled.h\"\n"
+        "#include \"AngelScript/APITemplates.h\"\n"
         "\n";
 
     sort(headers_.begin(), headers_.end());

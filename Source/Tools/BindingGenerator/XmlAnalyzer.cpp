@@ -30,7 +30,7 @@ static string HeaderFullPathToRelative(const string& fullPath)
 {
     size_t pos = fullPath.rfind("Source/Urho3D");
     assert(pos != string::npos);
-    return ".." + fullPath.substr(pos + strlen("Source/Urho3D"));
+    return fullPath.substr(pos + 1 + strlen("Source/Urho3D"));
 }
 
 string ExtractHeaderFile(xml_node memberdef)

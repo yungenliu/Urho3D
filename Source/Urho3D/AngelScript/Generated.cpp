@@ -1,77 +1,77 @@
 // DO NOT EDIT. This file is generated
 
-#include "../Precompiled.h"
-#include "../AngelScript/APITemplates.h"
+#include "Precompiled.h"
+#include "AngelScript/APITemplates.h"
 
-#include "../Core/Attribute.h"
-#include "../Core/Spline.h"
-#include "../Core/Variant.h"
+#include "Core/Attribute.h"
+#include "Core/Spline.h"
+#include "Core/Variant.h"
 #ifdef URHO3D_DATABASE
-#include "../Database/Database.h"
+#include "Database/Database.h"
 #endif
-#include "../Graphics/Animation.h"
-#include "../Graphics/AnimationState.h"
-#include "../Graphics/Camera.h"
-#include "../Graphics/GraphicsDefs.h"
-#include "../Graphics/Light.h"
-#include "../Graphics/OctreeQuery.h"
-#include "../Graphics/ParticleEffect.h"
-#include "../Graphics/RenderPath.h"
-#include "../Graphics/RibbonTrail.h"
-#include "../Graphics/Skeleton.h"
-#include "../Graphics/Technique.h"
-#include "../IO/File.h"
-#include "../Input/Input.h"
-#include "../Input/InputConstants.h"
-#include "../Math/Frustum.h"
-#include "../Math/MathDefs.h"
+#include "Graphics/Animation.h"
+#include "Graphics/AnimationState.h"
+#include "Graphics/Camera.h"
+#include "Graphics/GraphicsDefs.h"
+#include "Graphics/Light.h"
+#include "Graphics/OctreeQuery.h"
+#include "Graphics/ParticleEffect.h"
+#include "Graphics/RenderPath.h"
+#include "Graphics/RibbonTrail.h"
+#include "Graphics/Skeleton.h"
+#include "Graphics/Technique.h"
+#include "IO/File.h"
+#include "Input/Input.h"
+#include "Input/InputConstants.h"
+#include "Math/Frustum.h"
+#include "Math/MathDefs.h"
 #ifdef URHO3D_NAVIGATION
-#include "../Navigation/CrowdAgent.h"
+#include "Navigation/CrowdAgent.h"
 #endif
 #ifdef URHO3D_NAVIGATION
-#include "../Navigation/NavigationMesh.h"
+#include "Navigation/NavigationMesh.h"
 #endif
 #ifdef URHO3D_NETWORK
-#include "../Network/Connection.h"
+#include "Network/Connection.h"
 #endif
 #ifdef URHO3D_NETWORK
-#include "../Network/HttpRequest.h"
+#include "Network/HttpRequest.h"
 #endif
 #ifdef URHO3D_PHYSICS
-#include "../Physics/CollisionShape.h"
+#include "Physics/CollisionShape.h"
 #endif
 #ifdef URHO3D_PHYSICS
-#include "../Physics/Constraint.h"
+#include "Physics/Constraint.h"
 #endif
 #ifdef URHO3D_PHYSICS
-#include "../Physics/RigidBody.h"
+#include "Physics/RigidBody.h"
 #endif
-#include "../Resource/Image.h"
-#include "../Resource/JSONValue.h"
-#include "../Scene/AnimationDefs.h"
-#include "../Scene/Component.h"
-#include "../Scene/Node.h"
-#include "../Scene/Scene.h"
-#include "../Scene/SmoothedTransform.h"
-#include "../Scene/ValueAnimation.h"
-#include "../UI/Cursor.h"
-#include "../UI/Font.h"
-#include "../UI/ListView.h"
-#include "../UI/Text.h"
-#include "../UI/UI.h"
-#include "../UI/UIElement.h"
-#include "../UI/Window.h"
+#include "Resource/Image.h"
+#include "Resource/JSONValue.h"
+#include "Scene/AnimationDefs.h"
+#include "Scene/Component.h"
+#include "Scene/Node.h"
+#include "Scene/Scene.h"
+#include "Scene/SmoothedTransform.h"
+#include "Scene/ValueAnimation.h"
+#include "UI/Cursor.h"
+#include "UI/Font.h"
+#include "UI/ListView.h"
+#include "UI/Text.h"
+#include "UI/UI.h"
+#include "UI/UIElement.h"
+#include "UI/Window.h"
 #ifdef URHO3D_URHO2D
-#include "../Urho2D/AnimatedSprite2D.h"
-#endif
-#ifdef URHO3D_URHO2D
-#include "../Urho2D/ParticleEffect2D.h"
+#include "Urho2D/AnimatedSprite2D.h"
 #endif
 #ifdef URHO3D_URHO2D
-#include "../Urho2D/RigidBody2D.h"
+#include "Urho2D/ParticleEffect2D.h"
 #endif
 #ifdef URHO3D_URHO2D
-#include "../Urho2D/TileMapDefs2D.h"
+#include "Urho2D/RigidBody2D.h"
+#endif
+#ifdef URHO3D_URHO2D
+#include "Urho2D/TileMapDefs2D.h"
 #endif
 
 namespace Urho3D
@@ -79,7 +79,7 @@ namespace Urho3D
 
 void RegisterGenerated(asIScriptEngine* engine)
 {
-    // enum AttributeMode | File: ../Core/Attribute.h | Line: 35
+    // enum AttributeMode | File: Core/Attribute.h | Line: 35
     engine->RegisterEnum("AttributeMode");
     engine->RegisterEnumValue("AttributeMode", "AM_EDIT", AM_EDIT);
     engine->RegisterEnumValue("AttributeMode", "AM_FILE", AM_FILE);
@@ -92,14 +92,14 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("AttributeMode", "AM_NODEIDVECTOR", AM_NODEIDVECTOR);
     engine->RegisterEnumValue("AttributeMode", "AM_FILEREADONLY", AM_FILEREADONLY);
 
-    // enum InterpolationMode | File: ../Core/Spline.h | Line: 37
+    // enum InterpolationMode | File: Core/Spline.h | Line: 37
     engine->RegisterEnum("InterpolationMode");
     engine->RegisterEnumValue("InterpolationMode", "BEZIER_CURVE", BEZIER_CURVE);
     engine->RegisterEnumValue("InterpolationMode", "CATMULL_ROM_CURVE", CATMULL_ROM_CURVE);
     engine->RegisterEnumValue("InterpolationMode", "LINEAR_CURVE", LINEAR_CURVE);
     engine->RegisterEnumValue("InterpolationMode", "CATMULL_ROM_FULL_CURVE", CATMULL_ROM_FULL_CURVE);
 
-    // enum VariantType | File: ../Core/Variant.h | Line: 42
+    // enum VariantType | File: Core/Variant.h | Line: 42
     engine->RegisterEnum("VariantType");
     engine->RegisterEnumValue("VariantType", "VAR_NONE", VAR_NONE);
     engine->RegisterEnumValue("VariantType", "VAR_INT", VAR_INT);
@@ -133,32 +133,32 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("VariantType", "MAX_VAR_TYPES", MAX_VAR_TYPES);
 
 #ifdef URHO3D_DATABASE
-    // enum DBAPI | File: ../Database/Database.h | Line: 35
+    // enum DBAPI | File: Database/Database.h | Line: 35
     engine->RegisterEnum("DBAPI");
     engine->RegisterEnumValue("DBAPI", "DBAPI_SQLITE", DBAPI_SQLITE);
     engine->RegisterEnumValue("DBAPI", "DBAPI_ODBC", DBAPI_ODBC);
 #endif
 
-    // enum AnimationChannel | File: ../Graphics/Animation.h | Line: 37
+    // enum AnimationChannel | File: Graphics/Animation.h | Line: 37
     engine->RegisterEnum("AnimationChannel");
     engine->RegisterEnumValue("AnimationChannel", "CHANNEL_NONE", CHANNEL_NONE);
     engine->RegisterEnumValue("AnimationChannel", "CHANNEL_POSITION", CHANNEL_POSITION);
     engine->RegisterEnumValue("AnimationChannel", "CHANNEL_ROTATION", CHANNEL_ROTATION);
     engine->RegisterEnumValue("AnimationChannel", "CHANNEL_SCALE", CHANNEL_SCALE);
 
-    // enum AnimationBlendMode | File: ../Graphics/AnimationState.h | Line: 43
+    // enum AnimationBlendMode | File: Graphics/AnimationState.h | Line: 43
     engine->RegisterEnum("AnimationBlendMode");
     engine->RegisterEnumValue("AnimationBlendMode", "ABM_LERP", ABM_LERP);
     engine->RegisterEnumValue("AnimationBlendMode", "ABM_ADDITIVE", ABM_ADDITIVE);
 
-    // enum ViewOverride | File: ../Graphics/Camera.h | Line: 41
+    // enum ViewOverride | File: Graphics/Camera.h | Line: 41
     engine->RegisterEnum("ViewOverride");
     engine->RegisterEnumValue("ViewOverride", "VO_NONE", VO_NONE);
     engine->RegisterEnumValue("ViewOverride", "VO_LOW_MATERIAL_QUALITY", VO_LOW_MATERIAL_QUALITY);
     engine->RegisterEnumValue("ViewOverride", "VO_DISABLE_SHADOWS", VO_DISABLE_SHADOWS);
     engine->RegisterEnumValue("ViewOverride", "VO_DISABLE_OCCLUSION", VO_DISABLE_OCCLUSION);
 
-    // enum PrimitiveType | File: ../Graphics/GraphicsDefs.h | Line: 45
+    // enum PrimitiveType | File: Graphics/GraphicsDefs.h | Line: 45
     engine->RegisterEnum("PrimitiveType");
     engine->RegisterEnumValue("PrimitiveType", "TRIANGLE_LIST", TRIANGLE_LIST);
     engine->RegisterEnumValue("PrimitiveType", "LINE_LIST", LINE_LIST);
@@ -167,7 +167,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("PrimitiveType", "LINE_STRIP", LINE_STRIP);
     engine->RegisterEnumValue("PrimitiveType", "TRIANGLE_FAN", TRIANGLE_FAN);
 
-    // enum BlendMode | File: ../Graphics/GraphicsDefs.h | Line: 72
+    // enum BlendMode | File: Graphics/GraphicsDefs.h | Line: 72
     engine->RegisterEnum("BlendMode");
     engine->RegisterEnumValue("BlendMode", "BLEND_REPLACE", BLEND_REPLACE);
     engine->RegisterEnumValue("BlendMode", "BLEND_ADD", BLEND_ADD);
@@ -180,7 +180,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("BlendMode", "BLEND_SUBTRACTALPHA", BLEND_SUBTRACTALPHA);
     engine->RegisterEnumValue("BlendMode", "MAX_BLENDMODES", MAX_BLENDMODES);
 
-    // enum CompareMode | File: ../Graphics/GraphicsDefs.h | Line: 87
+    // enum CompareMode | File: Graphics/GraphicsDefs.h | Line: 87
     engine->RegisterEnum("CompareMode");
     engine->RegisterEnumValue("CompareMode", "CMP_ALWAYS", CMP_ALWAYS);
     engine->RegisterEnumValue("CompareMode", "CMP_EQUAL", CMP_EQUAL);
@@ -191,20 +191,20 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("CompareMode", "CMP_GREATEREQUAL", CMP_GREATEREQUAL);
     engine->RegisterEnumValue("CompareMode", "MAX_COMPAREMODES", MAX_COMPAREMODES);
 
-    // enum CullMode | File: ../Graphics/GraphicsDefs.h | Line: 100
+    // enum CullMode | File: Graphics/GraphicsDefs.h | Line: 100
     engine->RegisterEnum("CullMode");
     engine->RegisterEnumValue("CullMode", "CULL_NONE", CULL_NONE);
     engine->RegisterEnumValue("CullMode", "CULL_CCW", CULL_CCW);
     engine->RegisterEnumValue("CullMode", "CULL_CW", CULL_CW);
     engine->RegisterEnumValue("CullMode", "MAX_CULLMODES", MAX_CULLMODES);
 
-    // enum FillMode | File: ../Graphics/GraphicsDefs.h | Line: 109
+    // enum FillMode | File: Graphics/GraphicsDefs.h | Line: 109
     engine->RegisterEnum("FillMode");
     engine->RegisterEnumValue("FillMode", "FILL_SOLID", FILL_SOLID);
     engine->RegisterEnumValue("FillMode", "FILL_WIREFRAME", FILL_WIREFRAME);
     engine->RegisterEnumValue("FillMode", "FILL_POINT", FILL_POINT);
 
-    // enum VertexElementType | File: ../Graphics/GraphicsDefs.h | Line: 160
+    // enum VertexElementType | File: Graphics/GraphicsDefs.h | Line: 160
     engine->RegisterEnum("VertexElementType");
     engine->RegisterEnumValue("VertexElementType", "TYPE_INT", TYPE_INT);
     engine->RegisterEnumValue("VertexElementType", "TYPE_FLOAT", TYPE_FLOAT);
@@ -215,7 +215,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("VertexElementType", "TYPE_UBYTE4_NORM", TYPE_UBYTE4_NORM);
     engine->RegisterEnumValue("VertexElementType", "MAX_VERTEX_ELEMENT_TYPES", MAX_VERTEX_ELEMENT_TYPES);
 
-    // enum VertexElementSemantic | File: ../Graphics/GraphicsDefs.h | Line: 173
+    // enum VertexElementSemantic | File: Graphics/GraphicsDefs.h | Line: 173
     engine->RegisterEnum("VertexElementSemantic");
     engine->RegisterEnumValue("VertexElementSemantic", "SEM_POSITION", SEM_POSITION);
     engine->RegisterEnumValue("VertexElementSemantic", "SEM_NORMAL", SEM_NORMAL);
@@ -228,7 +228,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("VertexElementSemantic", "SEM_OBJECTINDEX", SEM_OBJECTINDEX);
     engine->RegisterEnumValue("VertexElementSemantic", "MAX_VERTEX_ELEMENT_SEMANTICS", MAX_VERTEX_ELEMENT_SEMANTICS);
 
-    // enum TextureFilterMode | File: ../Graphics/GraphicsDefs.h | Line: 235
+    // enum TextureFilterMode | File: Graphics/GraphicsDefs.h | Line: 235
     engine->RegisterEnum("TextureFilterMode");
     engine->RegisterEnumValue("TextureFilterMode", "FILTER_NEAREST", FILTER_NEAREST);
     engine->RegisterEnumValue("TextureFilterMode", "FILTER_BILINEAR", FILTER_BILINEAR);
@@ -238,7 +238,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("TextureFilterMode", "FILTER_DEFAULT", FILTER_DEFAULT);
     engine->RegisterEnumValue("TextureFilterMode", "MAX_FILTERMODES", MAX_FILTERMODES);
 
-    // enum TextureAddressMode | File: ../Graphics/GraphicsDefs.h | Line: 247
+    // enum TextureAddressMode | File: Graphics/GraphicsDefs.h | Line: 247
     engine->RegisterEnum("TextureAddressMode");
     engine->RegisterEnumValue("TextureAddressMode", "ADDRESS_WRAP", ADDRESS_WRAP);
     engine->RegisterEnumValue("TextureAddressMode", "ADDRESS_MIRROR", ADDRESS_MIRROR);
@@ -246,21 +246,21 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("TextureAddressMode", "ADDRESS_BORDER", ADDRESS_BORDER);
     engine->RegisterEnumValue("TextureAddressMode", "MAX_ADDRESSMODES", MAX_ADDRESSMODES);
 
-    // enum TextureCoordinate | File: ../Graphics/GraphicsDefs.h | Line: 257
+    // enum TextureCoordinate | File: Graphics/GraphicsDefs.h | Line: 257
     engine->RegisterEnum("TextureCoordinate");
     engine->RegisterEnumValue("TextureCoordinate", "COORD_U", COORD_U);
     engine->RegisterEnumValue("TextureCoordinate", "COORD_V", COORD_V);
     engine->RegisterEnumValue("TextureCoordinate", "COORD_W", COORD_W);
     engine->RegisterEnumValue("TextureCoordinate", "MAX_COORDS", MAX_COORDS);
 
-    // enum TextureUsage | File: ../Graphics/GraphicsDefs.h | Line: 266
+    // enum TextureUsage | File: Graphics/GraphicsDefs.h | Line: 266
     engine->RegisterEnum("TextureUsage");
     engine->RegisterEnumValue("TextureUsage", "TEXTURE_STATIC", TEXTURE_STATIC);
     engine->RegisterEnumValue("TextureUsage", "TEXTURE_DYNAMIC", TEXTURE_DYNAMIC);
     engine->RegisterEnumValue("TextureUsage", "TEXTURE_RENDERTARGET", TEXTURE_RENDERTARGET);
     engine->RegisterEnumValue("TextureUsage", "TEXTURE_DEPTHSTENCIL", TEXTURE_DEPTHSTENCIL);
 
-    // enum CubeMapFace | File: ../Graphics/GraphicsDefs.h | Line: 275
+    // enum CubeMapFace | File: Graphics/GraphicsDefs.h | Line: 275
     engine->RegisterEnum("CubeMapFace");
     engine->RegisterEnumValue("CubeMapFace", "FACE_POSITIVE_X", FACE_POSITIVE_X);
     engine->RegisterEnumValue("CubeMapFace", "FACE_NEGATIVE_X", FACE_NEGATIVE_X);
@@ -270,13 +270,13 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("CubeMapFace", "FACE_NEGATIVE_Z", FACE_NEGATIVE_Z);
     engine->RegisterEnumValue("CubeMapFace", "MAX_CUBEMAP_FACES", MAX_CUBEMAP_FACES);
 
-    // enum RenderSurfaceUpdateMode | File: ../Graphics/GraphicsDefs.h | Line: 298
+    // enum RenderSurfaceUpdateMode | File: Graphics/GraphicsDefs.h | Line: 298
     engine->RegisterEnum("RenderSurfaceUpdateMode");
     engine->RegisterEnumValue("RenderSurfaceUpdateMode", "SURFACE_MANUALUPDATE", SURFACE_MANUALUPDATE);
     engine->RegisterEnumValue("RenderSurfaceUpdateMode", "SURFACE_UPDATEVISIBLE", SURFACE_UPDATEVISIBLE);
     engine->RegisterEnumValue("RenderSurfaceUpdateMode", "SURFACE_UPDATEALWAYS", SURFACE_UPDATEALWAYS);
 
-    // enum FaceCameraMode | File: ../Graphics/GraphicsDefs.h | Line: 362
+    // enum FaceCameraMode | File: Graphics/GraphicsDefs.h | Line: 362
     engine->RegisterEnum("FaceCameraMode");
     engine->RegisterEnumValue("FaceCameraMode", "FC_NONE", FC_NONE);
     engine->RegisterEnumValue("FaceCameraMode", "FC_ROTATE_XYZ", FC_ROTATE_XYZ);
@@ -286,7 +286,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("FaceCameraMode", "FC_LOOKAT_MIXED", FC_LOOKAT_MIXED);
     engine->RegisterEnumValue("FaceCameraMode", "FC_DIRECTION", FC_DIRECTION);
 
-    // enum ShadowQuality | File: ../Graphics/GraphicsDefs.h | Line: 374
+    // enum ShadowQuality | File: Graphics/GraphicsDefs.h | Line: 374
     engine->RegisterEnum("ShadowQuality");
     engine->RegisterEnumValue("ShadowQuality", "SHADOWQUALITY_SIMPLE_16BIT", SHADOWQUALITY_SIMPLE_16BIT);
     engine->RegisterEnumValue("ShadowQuality", "SHADOWQUALITY_SIMPLE_24BIT", SHADOWQUALITY_SIMPLE_24BIT);
@@ -295,20 +295,20 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("ShadowQuality", "SHADOWQUALITY_VSM", SHADOWQUALITY_VSM);
     engine->RegisterEnumValue("ShadowQuality", "SHADOWQUALITY_BLUR_VSM", SHADOWQUALITY_BLUR_VSM);
 
-    // enum MaterialQuality | File: ../Graphics/GraphicsDefs.h | Line: 445
+    // enum MaterialQuality | File: Graphics/GraphicsDefs.h | Line: 445
     engine->RegisterEnum("MaterialQuality");
     engine->RegisterEnumValue("MaterialQuality", "QUALITY_LOW", QUALITY_LOW);
     engine->RegisterEnumValue("MaterialQuality", "QUALITY_MEDIUM", QUALITY_MEDIUM);
     engine->RegisterEnumValue("MaterialQuality", "QUALITY_HIGH", QUALITY_HIGH);
     engine->RegisterEnumValue("MaterialQuality", "QUALITY_MAX", QUALITY_MAX);
 
-    // enum ClearTarget | File: ../Graphics/GraphicsDefs.h | Line: 453
+    // enum ClearTarget | File: Graphics/GraphicsDefs.h | Line: 453
     engine->RegisterEnum("ClearTarget");
     engine->RegisterEnumValue("ClearTarget", "CLEAR_COLOR", CLEAR_COLOR);
     engine->RegisterEnumValue("ClearTarget", "CLEAR_DEPTH", CLEAR_DEPTH);
     engine->RegisterEnumValue("ClearTarget", "CLEAR_STENCIL", CLEAR_STENCIL);
 
-    // enum VertexMask | File: ../Graphics/GraphicsDefs.h | Line: 462
+    // enum VertexMask | File: Graphics/GraphicsDefs.h | Line: 462
     engine->RegisterEnum("VertexMask");
     engine->RegisterEnumValue("VertexMask", "MASK_NONE", MASK_NONE);
     engine->RegisterEnumValue("VertexMask", "MASK_POSITION", MASK_POSITION);
@@ -326,20 +326,20 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("VertexMask", "MASK_INSTANCEMATRIX3", MASK_INSTANCEMATRIX3);
     engine->RegisterEnumValue("VertexMask", "MASK_OBJECTINDEX", MASK_OBJECTINDEX);
 
-    // enum LightType | File: ../Graphics/Light.h | Line: 40
+    // enum LightType | File: Graphics/Light.h | Line: 40
     engine->RegisterEnum("LightType");
     engine->RegisterEnumValue("LightType", "LIGHT_DIRECTIONAL", LIGHT_DIRECTIONAL);
     engine->RegisterEnumValue("LightType", "LIGHT_SPOT", LIGHT_SPOT);
     engine->RegisterEnumValue("LightType", "LIGHT_POINT", LIGHT_POINT);
 
-    // enum RayQueryLevel | File: ../Graphics/OctreeQuery.h | Line: 177
+    // enum RayQueryLevel | File: Graphics/OctreeQuery.h | Line: 177
     engine->RegisterEnum("RayQueryLevel");
     engine->RegisterEnumValue("RayQueryLevel", "RAY_AABB", RAY_AABB);
     engine->RegisterEnumValue("RayQueryLevel", "RAY_OBB", RAY_OBB);
     engine->RegisterEnumValue("RayQueryLevel", "RAY_TRIANGLE", RAY_TRIANGLE);
     engine->RegisterEnumValue("RayQueryLevel", "RAY_TRIANGLE_UV", RAY_TRIANGLE_UV);
 
-    // enum EmitterType | File: ../Graphics/ParticleEffect.h | Line: 35
+    // enum EmitterType | File: Graphics/ParticleEffect.h | Line: 35
     engine->RegisterEnum("EmitterType");
     engine->RegisterEnumValue("EmitterType", "EMITTER_SPHERE", EMITTER_SPHERE);
     engine->RegisterEnumValue("EmitterType", "EMITTER_BOX", EMITTER_BOX);
@@ -347,7 +347,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("EmitterType", "EMITTER_CYLINDER", EMITTER_CYLINDER);
     engine->RegisterEnumValue("EmitterType", "EMITTER_RING", EMITTER_RING);
 
-    // enum RenderCommandType | File: ../Graphics/RenderPath.h | Line: 41
+    // enum RenderCommandType | File: Graphics/RenderPath.h | Line: 41
     engine->RegisterEnum("RenderCommandType");
     engine->RegisterEnumValue("RenderCommandType", "CMD_NONE", CMD_NONE);
     engine->RegisterEnumValue("RenderCommandType", "CMD_CLEAR", CMD_CLEAR);
@@ -358,35 +358,35 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("RenderCommandType", "CMD_RENDERUI", CMD_RENDERUI);
     engine->RegisterEnumValue("RenderCommandType", "CMD_SENDEVENT", CMD_SENDEVENT);
 
-    // enum RenderCommandSortMode | File: ../Graphics/RenderPath.h | Line: 54
+    // enum RenderCommandSortMode | File: Graphics/RenderPath.h | Line: 54
     engine->RegisterEnum("RenderCommandSortMode");
     engine->RegisterEnumValue("RenderCommandSortMode", "SORT_FRONTTOBACK", SORT_FRONTTOBACK);
     engine->RegisterEnumValue("RenderCommandSortMode", "SORT_BACKTOFRONT", SORT_BACKTOFRONT);
 
-    // enum RenderTargetSizeMode | File: ../Graphics/RenderPath.h | Line: 61
+    // enum RenderTargetSizeMode | File: Graphics/RenderPath.h | Line: 61
     engine->RegisterEnum("RenderTargetSizeMode");
     engine->RegisterEnumValue("RenderTargetSizeMode", "SIZE_ABSOLUTE", SIZE_ABSOLUTE);
     engine->RegisterEnumValue("RenderTargetSizeMode", "SIZE_VIEWPORTDIVISOR", SIZE_VIEWPORTDIVISOR);
     engine->RegisterEnumValue("RenderTargetSizeMode", "SIZE_VIEWPORTMULTIPLIER", SIZE_VIEWPORTMULTIPLIER);
 
-    // enum TrailType | File: ../Graphics/RibbonTrail.h | Line: 33
+    // enum TrailType | File: Graphics/RibbonTrail.h | Line: 33
     engine->RegisterEnum("TrailType");
     engine->RegisterEnumValue("TrailType", "TT_FACE_CAMERA", TT_FACE_CAMERA);
     engine->RegisterEnumValue("TrailType", "TT_BONE", TT_BONE);
 
-    // enum BoneCollisionShape | File: ../Graphics/Skeleton.h | Line: 34
+    // enum BoneCollisionShape | File: Graphics/Skeleton.h | Line: 34
     engine->RegisterEnum("BoneCollisionShape");
     engine->RegisterEnumValue("BoneCollisionShape", "BONECOLLISION_NONE", BONECOLLISION_NONE);
     engine->RegisterEnumValue("BoneCollisionShape", "BONECOLLISION_SPHERE", BONECOLLISION_SPHERE);
     engine->RegisterEnumValue("BoneCollisionShape", "BONECOLLISION_BOX", BONECOLLISION_BOX);
 
-    // enum PassLightingMode | File: ../Graphics/Technique.h | Line: 37
+    // enum PassLightingMode | File: Graphics/Technique.h | Line: 37
     engine->RegisterEnum("PassLightingMode");
     engine->RegisterEnumValue("PassLightingMode", "LIGHTING_UNLIT", LIGHTING_UNLIT);
     engine->RegisterEnumValue("PassLightingMode", "LIGHTING_PERVERTEX", LIGHTING_PERVERTEX);
     engine->RegisterEnumValue("PassLightingMode", "LIGHTING_PERPIXEL", LIGHTING_PERPIXEL);
 
-    // enum MouseMode | File: ../Input/Input.h | Line: 40
+    // enum MouseMode | File: Input/Input.h | Line: 40
     engine->RegisterEnum("MouseMode");
     engine->RegisterEnumValue("MouseMode", "MM_ABSOLUTE", MM_ABSOLUTE);
     engine->RegisterEnumValue("MouseMode", "MM_RELATIVE", MM_RELATIVE);
@@ -394,7 +394,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("MouseMode", "MM_FREE", MM_FREE);
     engine->RegisterEnumValue("MouseMode", "MM_INVALID", MM_INVALID);
 
-    // enum MouseButton | File: ../Input/InputConstants.h | Line: 40
+    // enum MouseButton | File: Input/InputConstants.h | Line: 40
     engine->RegisterEnum("MouseButton");
     engine->RegisterEnumValue("MouseButton", "MOUSEB_NONE", MOUSEB_NONE);
     engine->RegisterEnumValue("MouseButton", "MOUSEB_LEFT", MOUSEB_LEFT);
@@ -404,7 +404,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("MouseButton", "MOUSEB_X2", MOUSEB_X2);
     engine->RegisterEnumValue("MouseButton", "MOUSEB_ANY", MOUSEB_ANY);
 
-    // enum Qualifier | File: ../Input/InputConstants.h | Line: 52
+    // enum Qualifier | File: Input/InputConstants.h | Line: 52
     engine->RegisterEnum("Qualifier");
     engine->RegisterEnumValue("Qualifier", "QUAL_NONE", QUAL_NONE);
     engine->RegisterEnumValue("Qualifier", "QUAL_SHIFT", QUAL_SHIFT);
@@ -412,7 +412,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("Qualifier", "QUAL_ALT", QUAL_ALT);
     engine->RegisterEnumValue("Qualifier", "QUAL_ANY", QUAL_ANY);
 
-    // enum Key | File: ../Input/InputConstants.h | Line: 63
+    // enum Key | File: Input/InputConstants.h | Line: 63
     engine->RegisterEnum("Key");
     engine->RegisterEnumValue("Key", "KEY_UNKNOWN", KEY_UNKNOWN);
     engine->RegisterEnumValue("Key", "KEY_A", KEY_A);
@@ -654,7 +654,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("Key", "KEY_VOLUMEUP", KEY_VOLUMEUP);
     engine->RegisterEnumValue("Key", "KEY_WWW", KEY_WWW);
 
-    // enum Scancode | File: ../Input/InputConstants.h | Line: 306
+    // enum Scancode | File: Input/InputConstants.h | Line: 306
     engine->RegisterEnum("Scancode");
     engine->RegisterEnumValue("Scancode", "SCANCODE_UNKNOWN", SCANCODE_UNKNOWN);
     engine->RegisterEnumValue("Scancode", "SCANCODE_CTRL", SCANCODE_CTRL);
@@ -902,7 +902,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("Scancode", "SCANCODE_APP1", SCANCODE_APP1);
     engine->RegisterEnumValue("Scancode", "SCANCODE_APP2", SCANCODE_APP2);
 
-    // enum HatPosition | File: ../Input/InputConstants.h | Line: 555
+    // enum HatPosition | File: Input/InputConstants.h | Line: 555
     engine->RegisterEnum("HatPosition");
     engine->RegisterEnumValue("HatPosition", "HAT_CENTER", HAT_CENTER);
     engine->RegisterEnumValue("HatPosition", "HAT_UP", HAT_UP);
@@ -910,7 +910,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("HatPosition", "HAT_DOWN", HAT_DOWN);
     engine->RegisterEnumValue("HatPosition", "HAT_LEFT", HAT_LEFT);
 
-    // enum ControllerButton | File: ../Input/InputConstants.h | Line: 564
+    // enum ControllerButton | File: Input/InputConstants.h | Line: 564
     engine->RegisterEnum("ControllerButton");
     engine->RegisterEnumValue("ControllerButton", "CONTROLLER_BUTTON_A", CONTROLLER_BUTTON_A);
     engine->RegisterEnumValue("ControllerButton", "CONTROLLER_BUTTON_B", CONTROLLER_BUTTON_B);
@@ -928,7 +928,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("ControllerButton", "CONTROLLER_BUTTON_DPAD_LEFT", CONTROLLER_BUTTON_DPAD_LEFT);
     engine->RegisterEnumValue("ControllerButton", "CONTROLLER_BUTTON_DPAD_RIGHT", CONTROLLER_BUTTON_DPAD_RIGHT);
 
-    // enum ControllerAxis | File: ../Input/InputConstants.h | Line: 583
+    // enum ControllerAxis | File: Input/InputConstants.h | Line: 583
     engine->RegisterEnum("ControllerAxis");
     engine->RegisterEnumValue("ControllerAxis", "CONTROLLER_AXIS_LEFTX", CONTROLLER_AXIS_LEFTX);
     engine->RegisterEnumValue("ControllerAxis", "CONTROLLER_AXIS_LEFTY", CONTROLLER_AXIS_LEFTY);
@@ -937,13 +937,13 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("ControllerAxis", "CONTROLLER_AXIS_TRIGGERLEFT", CONTROLLER_AXIS_TRIGGERLEFT);
     engine->RegisterEnumValue("ControllerAxis", "CONTROLLER_AXIS_TRIGGERRIGHT", CONTROLLER_AXIS_TRIGGERRIGHT);
 
-    // enum FileMode | File: ../IO/File.h | Line: 53
+    // enum FileMode | File: IO/File.h | Line: 53
     engine->RegisterEnum("FileMode");
     engine->RegisterEnumValue("FileMode", "FILE_READ", FILE_READ);
     engine->RegisterEnumValue("FileMode", "FILE_WRITE", FILE_WRITE);
     engine->RegisterEnumValue("FileMode", "FILE_READWRITE", FILE_READWRITE);
 
-    // enum FrustumPlane | File: ../Math/Frustum.h | Line: 38
+    // enum FrustumPlane | File: Math/Frustum.h | Line: 38
     engine->RegisterEnum("FrustumPlane");
     engine->RegisterEnumValue("FrustumPlane", "PLANE_NEAR", PLANE_NEAR);
     engine->RegisterEnumValue("FrustumPlane", "PLANE_LEFT", PLANE_LEFT);
@@ -952,14 +952,14 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("FrustumPlane", "PLANE_DOWN", PLANE_DOWN);
     engine->RegisterEnumValue("FrustumPlane", "PLANE_FAR", PLANE_FAR);
 
-    // enum Intersection | File: ../Math/MathDefs.h | Line: 63
+    // enum Intersection | File: Math/MathDefs.h | Line: 63
     engine->RegisterEnum("Intersection");
     engine->RegisterEnumValue("Intersection", "OUTSIDE", OUTSIDE);
     engine->RegisterEnumValue("Intersection", "INTERSECTS", INTERSECTS);
     engine->RegisterEnumValue("Intersection", "INSIDE", INSIDE);
 
 #ifdef URHO3D_NAVIGATION
-    // enum CrowdAgentRequestedTarget | File: ../Navigation/CrowdAgent.h | Line: 34
+    // enum CrowdAgentRequestedTarget | File: Navigation/CrowdAgent.h | Line: 34
     engine->RegisterEnum("CrowdAgentRequestedTarget");
     engine->RegisterEnumValue("CrowdAgentRequestedTarget", "CA_REQUESTEDTARGET_NONE", CA_REQUESTEDTARGET_NONE);
     engine->RegisterEnumValue("CrowdAgentRequestedTarget", "CA_REQUESTEDTARGET_POSITION", CA_REQUESTEDTARGET_POSITION);
@@ -967,7 +967,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum CrowdAgentTargetState | File: ../Navigation/CrowdAgent.h | Line: 41
+    // enum CrowdAgentTargetState | File: Navigation/CrowdAgent.h | Line: 41
     engine->RegisterEnum("CrowdAgentTargetState");
     engine->RegisterEnumValue("CrowdAgentTargetState", "CA_TARGET_NONE", CA_TARGET_NONE);
     engine->RegisterEnumValue("CrowdAgentTargetState", "CA_TARGET_FAILED", CA_TARGET_FAILED);
@@ -979,7 +979,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum CrowdAgentState | File: ../Navigation/CrowdAgent.h | Line: 52
+    // enum CrowdAgentState | File: Navigation/CrowdAgent.h | Line: 52
     engine->RegisterEnum("CrowdAgentState");
     engine->RegisterEnumValue("CrowdAgentState", "CA_STATE_INVALID", CA_STATE_INVALID);
     engine->RegisterEnumValue("CrowdAgentState", "CA_STATE_WALKING", CA_STATE_WALKING);
@@ -987,7 +987,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum NavigationQuality | File: ../Navigation/CrowdAgent.h | Line: 59
+    // enum NavigationQuality | File: Navigation/CrowdAgent.h | Line: 59
     engine->RegisterEnum("NavigationQuality");
     engine->RegisterEnumValue("NavigationQuality", "NAVIGATIONQUALITY_LOW", NAVIGATIONQUALITY_LOW);
     engine->RegisterEnumValue("NavigationQuality", "NAVIGATIONQUALITY_MEDIUM", NAVIGATIONQUALITY_MEDIUM);
@@ -995,7 +995,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum NavigationPushiness | File: ../Navigation/CrowdAgent.h | Line: 66
+    // enum NavigationPushiness | File: Navigation/CrowdAgent.h | Line: 66
     engine->RegisterEnum("NavigationPushiness");
     engine->RegisterEnumValue("NavigationPushiness", "NAVIGATIONPUSHINESS_LOW", NAVIGATIONPUSHINESS_LOW);
     engine->RegisterEnumValue("NavigationPushiness", "NAVIGATIONPUSHINESS_MEDIUM", NAVIGATIONPUSHINESS_MEDIUM);
@@ -1004,14 +1004,14 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum NavmeshPartitionType | File: ../Navigation/NavigationMesh.h | Line: 47
+    // enum NavmeshPartitionType | File: Navigation/NavigationMesh.h | Line: 47
     engine->RegisterEnum("NavmeshPartitionType");
     engine->RegisterEnumValue("NavmeshPartitionType", "NAVMESH_PARTITION_WATERSHED", NAVMESH_PARTITION_WATERSHED);
     engine->RegisterEnumValue("NavmeshPartitionType", "NAVMESH_PARTITION_MONOTONE", NAVMESH_PARTITION_MONOTONE);
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // enum NavigationPathPointFlag | File: ../Navigation/NavigationMesh.h | Line: 74
+    // enum NavigationPathPointFlag | File: Navigation/NavigationMesh.h | Line: 74
     engine->RegisterEnum("NavigationPathPointFlag");
     engine->RegisterEnumValue("NavigationPathPointFlag", "NAVPATHFLAG_NONE", NAVPATHFLAG_NONE);
     engine->RegisterEnumValue("NavigationPathPointFlag", "NAVPATHFLAG_START", NAVPATHFLAG_START);
@@ -1020,7 +1020,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NETWORK
-    // enum ObserverPositionSendMode | File: ../Network/Connection.h | Line: 103
+    // enum ObserverPositionSendMode | File: Network/Connection.h | Line: 103
     engine->RegisterEnum("ObserverPositionSendMode");
     engine->RegisterEnumValue("ObserverPositionSendMode", "OPSM_NONE", OPSM_NONE);
     engine->RegisterEnumValue("ObserverPositionSendMode", "OPSM_POSITION", OPSM_POSITION);
@@ -1028,7 +1028,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NETWORK
-    // enum HttpRequestState | File: ../Network/HttpRequest.h | Line: 38
+    // enum HttpRequestState | File: Network/HttpRequest.h | Line: 38
     engine->RegisterEnum("HttpRequestState");
     engine->RegisterEnumValue("HttpRequestState", "HTTP_INITIALIZING", HTTP_INITIALIZING);
     engine->RegisterEnumValue("HttpRequestState", "HTTP_ERROR", HTTP_ERROR);
@@ -1037,7 +1037,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // enum ShapeType | File: ../Physics/CollisionShape.h | Line: 53
+    // enum ShapeType | File: Physics/CollisionShape.h | Line: 53
     engine->RegisterEnum("ShapeType");
     engine->RegisterEnumValue("ShapeType", "SHAPE_BOX", SHAPE_BOX);
     engine->RegisterEnumValue("ShapeType", "SHAPE_SPHERE", SHAPE_SPHERE);
@@ -1052,7 +1052,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // enum ConstraintType | File: ../Physics/Constraint.h | Line: 37
+    // enum ConstraintType | File: Physics/Constraint.h | Line: 37
     engine->RegisterEnum("ConstraintType");
     engine->RegisterEnumValue("ConstraintType", "CONSTRAINT_POINT", CONSTRAINT_POINT);
     engine->RegisterEnumValue("ConstraintType", "CONSTRAINT_HINGE", CONSTRAINT_HINGE);
@@ -1061,14 +1061,14 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // enum CollisionEventMode | File: ../Physics/RigidBody.h | Line: 45
+    // enum CollisionEventMode | File: Physics/RigidBody.h | Line: 45
     engine->RegisterEnum("CollisionEventMode");
     engine->RegisterEnumValue("CollisionEventMode", "COLLISION_NEVER", COLLISION_NEVER);
     engine->RegisterEnumValue("CollisionEventMode", "COLLISION_ACTIVE", COLLISION_ACTIVE);
     engine->RegisterEnumValue("CollisionEventMode", "COLLISION_ALWAYS", COLLISION_ALWAYS);
 #endif
 
-    // enum CompressedFormat | File: ../Resource/Image.h | Line: 39
+    // enum CompressedFormat | File: Resource/Image.h | Line: 39
     engine->RegisterEnum("CompressedFormat");
     engine->RegisterEnumValue("CompressedFormat", "CF_NONE", CF_NONE);
     engine->RegisterEnumValue("CompressedFormat", "CF_RGBA", CF_RGBA);
@@ -1083,7 +1083,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("CompressedFormat", "CF_PVRTC_RGB_4BPP", CF_PVRTC_RGB_4BPP);
     engine->RegisterEnumValue("CompressedFormat", "CF_PVRTC_RGBA_4BPP", CF_PVRTC_RGBA_4BPP);
 
-    // enum JSONValueType | File: ../Resource/JSONValue.h | Line: 34
+    // enum JSONValueType | File: Resource/JSONValue.h | Line: 34
     engine->RegisterEnum("JSONValueType");
     engine->RegisterEnumValue("JSONValueType", "JSON_NULL", JSON_NULL);
     engine->RegisterEnumValue("JSONValueType", "JSON_BOOL", JSON_BOOL);
@@ -1092,55 +1092,55 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("JSONValueType", "JSON_ARRAY", JSON_ARRAY);
     engine->RegisterEnumValue("JSONValueType", "JSON_OBJECT", JSON_OBJECT);
 
-    // enum JSONNumberType | File: ../Resource/JSONValue.h | Line: 51
+    // enum JSONNumberType | File: Resource/JSONValue.h | Line: 51
     engine->RegisterEnum("JSONNumberType");
     engine->RegisterEnumValue("JSONNumberType", "JSONNT_NAN", JSONNT_NAN);
     engine->RegisterEnumValue("JSONNumberType", "JSONNT_INT", JSONNT_INT);
     engine->RegisterEnumValue("JSONNumberType", "JSONNT_UINT", JSONNT_UINT);
     engine->RegisterEnumValue("JSONNumberType", "JSONNT_FLOAT_DOUBLE", JSONNT_FLOAT_DOUBLE);
 
-    // enum WrapMode | File: ../Scene/AnimationDefs.h | Line: 32
+    // enum WrapMode | File: Scene/AnimationDefs.h | Line: 32
     engine->RegisterEnum("WrapMode");
     engine->RegisterEnumValue("WrapMode", "WM_LOOP", WM_LOOP);
     engine->RegisterEnumValue("WrapMode", "WM_ONCE", WM_ONCE);
     engine->RegisterEnumValue("WrapMode", "WM_CLAMP", WM_CLAMP);
 
-    // enum AutoRemoveMode | File: ../Scene/Component.h | Line: 40
+    // enum AutoRemoveMode | File: Scene/Component.h | Line: 40
     engine->RegisterEnum("AutoRemoveMode");
     engine->RegisterEnumValue("AutoRemoveMode", "REMOVE_DISABLED", REMOVE_DISABLED);
     engine->RegisterEnumValue("AutoRemoveMode", "REMOVE_COMPONENT", REMOVE_COMPONENT);
     engine->RegisterEnumValue("AutoRemoveMode", "REMOVE_NODE", REMOVE_NODE);
 
-    // enum CreateMode | File: ../Scene/Node.h | Line: 44
+    // enum CreateMode | File: Scene/Node.h | Line: 44
     engine->RegisterEnum("CreateMode");
     engine->RegisterEnumValue("CreateMode", "REPLICATED", REPLICATED);
     engine->RegisterEnumValue("CreateMode", "LOCAL", LOCAL);
 
-    // enum TransformSpace | File: ../Scene/Node.h | Line: 51
+    // enum TransformSpace | File: Scene/Node.h | Line: 51
     engine->RegisterEnum("TransformSpace");
     engine->RegisterEnumValue("TransformSpace", "TS_LOCAL", TS_LOCAL);
     engine->RegisterEnumValue("TransformSpace", "TS_PARENT", TS_PARENT);
     engine->RegisterEnumValue("TransformSpace", "TS_WORLD", TS_WORLD);
 
-    // enum LoadMode | File: ../Scene/Scene.h | Line: 47
+    // enum LoadMode | File: Scene/Scene.h | Line: 47
     engine->RegisterEnum("LoadMode");
     engine->RegisterEnumValue("LoadMode", "LOAD_RESOURCES_ONLY", LOAD_RESOURCES_ONLY);
     engine->RegisterEnumValue("LoadMode", "LOAD_SCENE", LOAD_SCENE);
     engine->RegisterEnumValue("LoadMode", "LOAD_SCENE_AND_RESOURCES", LOAD_SCENE_AND_RESOURCES);
 
-    // enum SmoothingType | File: ../Scene/SmoothedTransform.h | Line: 33
+    // enum SmoothingType | File: Scene/SmoothedTransform.h | Line: 33
     engine->RegisterEnum("SmoothingType");
     engine->RegisterEnumValue("SmoothingType", "SMOOTH_NONE", SMOOTH_NONE);
     engine->RegisterEnumValue("SmoothingType", "SMOOTH_POSITION", SMOOTH_POSITION);
     engine->RegisterEnumValue("SmoothingType", "SMOOTH_ROTATION", SMOOTH_ROTATION);
 
-    // enum InterpMethod | File: ../Scene/ValueAnimation.h | Line: 38
+    // enum InterpMethod | File: Scene/ValueAnimation.h | Line: 38
     engine->RegisterEnum("InterpMethod");
     engine->RegisterEnumValue("InterpMethod", "IM_NONE", IM_NONE);
     engine->RegisterEnumValue("InterpMethod", "IM_LINEAR", IM_LINEAR);
     engine->RegisterEnumValue("InterpMethod", "IM_SPLINE", IM_SPLINE);
 
-    // enum CursorShape | File: ../UI/Cursor.h | Line: 38
+    // enum CursorShape | File: UI/Cursor.h | Line: 38
     engine->RegisterEnum("CursorShape");
     engine->RegisterEnumValue("CursorShape", "CS_NORMAL", CS_NORMAL);
     engine->RegisterEnumValue("CursorShape", "CS_IBEAM", CS_IBEAM);
@@ -1156,46 +1156,46 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("CursorShape", "CS_BUSY_ARROW", CS_BUSY_ARROW);
     engine->RegisterEnumValue("CursorShape", "CS_MAX_SHAPES", CS_MAX_SHAPES);
 
-    // enum FontType | File: ../UI/Font.h | Line: 40
+    // enum FontType | File: UI/Font.h | Line: 40
     engine->RegisterEnum("FontType");
     engine->RegisterEnumValue("FontType", "FONT_NONE", FONT_NONE);
     engine->RegisterEnumValue("FontType", "FONT_FREETYPE", FONT_FREETYPE);
     engine->RegisterEnumValue("FontType", "FONT_BITMAP", FONT_BITMAP);
     engine->RegisterEnumValue("FontType", "MAX_FONT_TYPES", MAX_FONT_TYPES);
 
-    // enum HighlightMode | File: ../UI/ListView.h | Line: 35
+    // enum HighlightMode | File: UI/ListView.h | Line: 35
     engine->RegisterEnum("HighlightMode");
     engine->RegisterEnumValue("HighlightMode", "HM_NEVER", HM_NEVER);
     engine->RegisterEnumValue("HighlightMode", "HM_FOCUS", HM_FOCUS);
     engine->RegisterEnumValue("HighlightMode", "HM_ALWAYS", HM_ALWAYS);
 
-    // enum TextEffect | File: ../UI/Text.h | Line: 40
+    // enum TextEffect | File: UI/Text.h | Line: 40
     engine->RegisterEnum("TextEffect");
     engine->RegisterEnumValue("TextEffect", "TE_NONE", TE_NONE);
     engine->RegisterEnumValue("TextEffect", "TE_SHADOW", TE_SHADOW);
     engine->RegisterEnumValue("TextEffect", "TE_STROKE", TE_STROKE);
 
-    // enum FontHintLevel | File: ../UI/UI.h | Line: 37
+    // enum FontHintLevel | File: UI/UI.h | Line: 37
     engine->RegisterEnum("FontHintLevel");
     engine->RegisterEnumValue("FontHintLevel", "FONT_HINT_LEVEL_NONE", FONT_HINT_LEVEL_NONE);
     engine->RegisterEnumValue("FontHintLevel", "FONT_HINT_LEVEL_LIGHT", FONT_HINT_LEVEL_LIGHT);
     engine->RegisterEnumValue("FontHintLevel", "FONT_HINT_LEVEL_NORMAL", FONT_HINT_LEVEL_NORMAL);
 
-    // enum HorizontalAlignment | File: ../UI/UIElement.h | Line: 38
+    // enum HorizontalAlignment | File: UI/UIElement.h | Line: 38
     engine->RegisterEnum("HorizontalAlignment");
     engine->RegisterEnumValue("HorizontalAlignment", "HA_LEFT", HA_LEFT);
     engine->RegisterEnumValue("HorizontalAlignment", "HA_CENTER", HA_CENTER);
     engine->RegisterEnumValue("HorizontalAlignment", "HA_RIGHT", HA_RIGHT);
     engine->RegisterEnumValue("HorizontalAlignment", "HA_CUSTOM", HA_CUSTOM);
 
-    // enum VerticalAlignment | File: ../UI/UIElement.h | Line: 47
+    // enum VerticalAlignment | File: UI/UIElement.h | Line: 47
     engine->RegisterEnum("VerticalAlignment");
     engine->RegisterEnumValue("VerticalAlignment", "VA_TOP", VA_TOP);
     engine->RegisterEnumValue("VerticalAlignment", "VA_CENTER", VA_CENTER);
     engine->RegisterEnumValue("VerticalAlignment", "VA_BOTTOM", VA_BOTTOM);
     engine->RegisterEnumValue("VerticalAlignment", "VA_CUSTOM", VA_CUSTOM);
 
-    // enum Corner | File: ../UI/UIElement.h | Line: 56
+    // enum Corner | File: UI/UIElement.h | Line: 56
     engine->RegisterEnum("Corner");
     engine->RegisterEnumValue("Corner", "C_TOPLEFT", C_TOPLEFT);
     engine->RegisterEnumValue("Corner", "C_TOPRIGHT", C_TOPRIGHT);
@@ -1203,37 +1203,37 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("Corner", "C_BOTTOMRIGHT", C_BOTTOMRIGHT);
     engine->RegisterEnumValue("Corner", "MAX_UIELEMENT_CORNERS", MAX_UIELEMENT_CORNERS);
 
-    // enum Orientation | File: ../UI/UIElement.h | Line: 66
+    // enum Orientation | File: UI/UIElement.h | Line: 66
     engine->RegisterEnum("Orientation");
     engine->RegisterEnumValue("Orientation", "O_HORIZONTAL", O_HORIZONTAL);
     engine->RegisterEnumValue("Orientation", "O_VERTICAL", O_VERTICAL);
 
-    // enum FocusMode | File: ../UI/UIElement.h | Line: 73
+    // enum FocusMode | File: UI/UIElement.h | Line: 73
     engine->RegisterEnum("FocusMode");
     engine->RegisterEnumValue("FocusMode", "FM_NOTFOCUSABLE", FM_NOTFOCUSABLE);
     engine->RegisterEnumValue("FocusMode", "FM_RESETFOCUS", FM_RESETFOCUS);
     engine->RegisterEnumValue("FocusMode", "FM_FOCUSABLE", FM_FOCUSABLE);
     engine->RegisterEnumValue("FocusMode", "FM_FOCUSABLE_DEFOCUSABLE", FM_FOCUSABLE_DEFOCUSABLE);
 
-    // enum LayoutMode | File: ../UI/UIElement.h | Line: 86
+    // enum LayoutMode | File: UI/UIElement.h | Line: 86
     engine->RegisterEnum("LayoutMode");
     engine->RegisterEnumValue("LayoutMode", "LM_FREE", LM_FREE);
     engine->RegisterEnumValue("LayoutMode", "LM_HORIZONTAL", LM_HORIZONTAL);
     engine->RegisterEnumValue("LayoutMode", "LM_VERTICAL", LM_VERTICAL);
 
-    // enum TraversalMode | File: ../UI/UIElement.h | Line: 97
+    // enum TraversalMode | File: UI/UIElement.h | Line: 97
     engine->RegisterEnum("TraversalMode");
     engine->RegisterEnumValue("TraversalMode", "TM_BREADTH_FIRST", TM_BREADTH_FIRST);
     engine->RegisterEnumValue("TraversalMode", "TM_DEPTH_FIRST", TM_DEPTH_FIRST);
 
-    // enum DragAndDropMode | File: ../UI/UIElement.h | Line: 105
+    // enum DragAndDropMode | File: UI/UIElement.h | Line: 105
     engine->RegisterEnum("DragAndDropMode");
     engine->RegisterEnumValue("DragAndDropMode", "DD_DISABLED", DD_DISABLED);
     engine->RegisterEnumValue("DragAndDropMode", "DD_SOURCE", DD_SOURCE);
     engine->RegisterEnumValue("DragAndDropMode", "DD_TARGET", DD_TARGET);
     engine->RegisterEnumValue("DragAndDropMode", "DD_SOURCE_AND_TARGET", DD_SOURCE_AND_TARGET);
 
-    // enum WindowDragMode | File: ../UI/Window.h | Line: 34
+    // enum WindowDragMode | File: UI/Window.h | Line: 34
     engine->RegisterEnum("WindowDragMode");
     engine->RegisterEnumValue("WindowDragMode", "DRAG_NONE", DRAG_NONE);
     engine->RegisterEnumValue("WindowDragMode", "DRAG_MOVE", DRAG_MOVE);
@@ -1247,7 +1247,7 @@ void RegisterGenerated(asIScriptEngine* engine)
     engine->RegisterEnumValue("WindowDragMode", "DRAG_RESIZE_LEFT", DRAG_RESIZE_LEFT);
 
 #ifdef URHO3D_URHO2D
-    // enum LoopMode2D | File: ../Urho2D/AnimatedSprite2D.h | Line: 40
+    // enum LoopMode2D | File: Urho2D/AnimatedSprite2D.h | Line: 40
     engine->RegisterEnum("LoopMode2D");
     engine->RegisterEnumValue("LoopMode2D", "LM_DEFAULT", LM_DEFAULT);
     engine->RegisterEnumValue("LoopMode2D", "LM_FORCE_LOOPED", LM_FORCE_LOOPED);
@@ -1255,14 +1255,14 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // enum EmitterType2D | File: ../Urho2D/ParticleEffect2D.h | Line: 38
+    // enum EmitterType2D | File: Urho2D/ParticleEffect2D.h | Line: 38
     engine->RegisterEnum("EmitterType2D");
     engine->RegisterEnumValue("EmitterType2D", "EMITTER_TYPE_GRAVITY", EMITTER_TYPE_GRAVITY);
     engine->RegisterEnumValue("EmitterType2D", "EMITTER_TYPE_RADIAL", EMITTER_TYPE_RADIAL);
 #endif
 
 #ifdef URHO3D_URHO2D
-    // enum BodyType2D | File: ../Urho2D/RigidBody2D.h | Line: 40
+    // enum BodyType2D | File: Urho2D/RigidBody2D.h | Line: 40
     engine->RegisterEnum("BodyType2D");
     engine->RegisterEnumValue("BodyType2D", "BT_STATIC", BT_STATIC);
     engine->RegisterEnumValue("BodyType2D", "BT_KINEMATIC", BT_KINEMATIC);
@@ -1270,7 +1270,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // enum Orientation2D | File: ../Urho2D/TileMapDefs2D.h | Line: 37
+    // enum Orientation2D | File: Urho2D/TileMapDefs2D.h | Line: 37
     engine->RegisterEnum("Orientation2D");
     engine->RegisterEnumValue("Orientation2D", "O_ORTHOGONAL", O_ORTHOGONAL);
     engine->RegisterEnumValue("Orientation2D", "O_ISOMETRIC", O_ISOMETRIC);
@@ -1279,7 +1279,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // enum TileMapLayerType2D | File: ../Urho2D/TileMapDefs2D.h | Line: 76
+    // enum TileMapLayerType2D | File: Urho2D/TileMapDefs2D.h | Line: 76
     engine->RegisterEnum("TileMapLayerType2D");
     engine->RegisterEnumValue("TileMapLayerType2D", "LT_TILE_LAYER", LT_TILE_LAYER);
     engine->RegisterEnumValue("TileMapLayerType2D", "LT_OBJECT_GROUP", LT_OBJECT_GROUP);
@@ -1288,7 +1288,7 @@ void RegisterGenerated(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // enum TileMapObjectType2D | File: ../Urho2D/TileMapDefs2D.h | Line: 89
+    // enum TileMapObjectType2D | File: Urho2D/TileMapDefs2D.h | Line: 89
     engine->RegisterEnum("TileMapObjectType2D");
     engine->RegisterEnumValue("TileMapObjectType2D", "OT_RECTANGLE", OT_RECTANGLE);
     engine->RegisterEnumValue("TileMapObjectType2D", "OT_ELLIPSE", OT_ELLIPSE);
