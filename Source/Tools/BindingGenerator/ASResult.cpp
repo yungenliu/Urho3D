@@ -59,8 +59,8 @@ void Save(const string& path)
     out <<
         "// DO NOT EDIT. This file is generated\n"
         "\n"
-        "#include \"Precompiled.h\"\n"
-        "#include \"AngelScript/APITemplates.h\"\n"
+        "#include <Precompiled.h>\n"
+        "#include <AngelScript/APITemplates.h>\n"
         "\n";
 
     sort(headers_.begin(), headers_.end());
@@ -70,7 +70,7 @@ void Save(const string& path)
         if (!insideDefine.empty())
             out << "#ifdef " << insideDefine << "\n";
 
-        out << "#include \"" << header << "\"\n";
+        out << "#include <" << header << ">\n";
 
         if (!insideDefine.empty())
             out << "#endif\n";

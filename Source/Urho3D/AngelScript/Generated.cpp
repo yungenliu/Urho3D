@@ -1,77 +1,77 @@
 // DO NOT EDIT. This file is generated
 
-#include "Precompiled.h"
-#include "AngelScript/APITemplates.h"
+#include <Precompiled.h>
+#include <AngelScript/APITemplates.h>
 
-#include "Core/Attribute.h"
-#include "Core/Spline.h"
-#include "Core/Variant.h"
+#include <Core/Attribute.h>
+#include <Core/Spline.h>
+#include <Core/Variant.h>
 #ifdef URHO3D_DATABASE
-#include "Database/Database.h"
+#include <Database/Database.h>
 #endif
-#include "Graphics/Animation.h"
-#include "Graphics/AnimationState.h"
-#include "Graphics/Camera.h"
-#include "Graphics/GraphicsDefs.h"
-#include "Graphics/Light.h"
-#include "Graphics/OctreeQuery.h"
-#include "Graphics/ParticleEffect.h"
-#include "Graphics/RenderPath.h"
-#include "Graphics/RibbonTrail.h"
-#include "Graphics/Skeleton.h"
-#include "Graphics/Technique.h"
-#include "IO/File.h"
-#include "Input/Input.h"
-#include "Input/InputConstants.h"
-#include "Math/Frustum.h"
-#include "Math/MathDefs.h"
+#include <Graphics/Animation.h>
+#include <Graphics/AnimationState.h>
+#include <Graphics/Camera.h>
+#include <Graphics/GraphicsDefs.h>
+#include <Graphics/Light.h>
+#include <Graphics/OctreeQuery.h>
+#include <Graphics/ParticleEffect.h>
+#include <Graphics/RenderPath.h>
+#include <Graphics/RibbonTrail.h>
+#include <Graphics/Skeleton.h>
+#include <Graphics/Technique.h>
+#include <IO/File.h>
+#include <Input/Input.h>
+#include <Input/InputConstants.h>
+#include <Math/Frustum.h>
+#include <Math/MathDefs.h>
 #ifdef URHO3D_NAVIGATION
-#include "Navigation/CrowdAgent.h"
+#include <Navigation/CrowdAgent.h>
 #endif
 #ifdef URHO3D_NAVIGATION
-#include "Navigation/NavigationMesh.h"
+#include <Navigation/NavigationMesh.h>
 #endif
 #ifdef URHO3D_NETWORK
-#include "Network/Connection.h"
+#include <Network/Connection.h>
 #endif
 #ifdef URHO3D_NETWORK
-#include "Network/HttpRequest.h"
+#include <Network/HttpRequest.h>
 #endif
 #ifdef URHO3D_PHYSICS
-#include "Physics/CollisionShape.h"
+#include <Physics/CollisionShape.h>
 #endif
 #ifdef URHO3D_PHYSICS
-#include "Physics/Constraint.h"
+#include <Physics/Constraint.h>
 #endif
 #ifdef URHO3D_PHYSICS
-#include "Physics/RigidBody.h"
+#include <Physics/RigidBody.h>
 #endif
-#include "Resource/Image.h"
-#include "Resource/JSONValue.h"
-#include "Scene/AnimationDefs.h"
-#include "Scene/Component.h"
-#include "Scene/Node.h"
-#include "Scene/Scene.h"
-#include "Scene/SmoothedTransform.h"
-#include "Scene/ValueAnimation.h"
-#include "UI/Cursor.h"
-#include "UI/Font.h"
-#include "UI/ListView.h"
-#include "UI/Text.h"
-#include "UI/UI.h"
-#include "UI/UIElement.h"
-#include "UI/Window.h"
+#include <Resource/Image.h>
+#include <Resource/JSONValue.h>
+#include <Scene/AnimationDefs.h>
+#include <Scene/Component.h>
+#include <Scene/Node.h>
+#include <Scene/Scene.h>
+#include <Scene/SmoothedTransform.h>
+#include <Scene/ValueAnimation.h>
+#include <UI/Cursor.h>
+#include <UI/Font.h>
+#include <UI/ListView.h>
+#include <UI/Text.h>
+#include <UI/UI.h>
+#include <UI/UIElement.h>
+#include <UI/Window.h>
 #ifdef URHO3D_URHO2D
-#include "Urho2D/AnimatedSprite2D.h"
-#endif
-#ifdef URHO3D_URHO2D
-#include "Urho2D/ParticleEffect2D.h"
+#include <Urho2D/AnimatedSprite2D.h>
 #endif
 #ifdef URHO3D_URHO2D
-#include "Urho2D/RigidBody2D.h"
+#include <Urho2D/ParticleEffect2D.h>
 #endif
 #ifdef URHO3D_URHO2D
-#include "Urho2D/TileMapDefs2D.h"
+#include <Urho2D/RigidBody2D.h>
+#endif
+#ifdef URHO3D_URHO2D
+#include <Urho2D/TileMapDefs2D.h>
 #endif
 
 namespace Urho3D
